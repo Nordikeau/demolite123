@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo lite - Laurent Savard</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+	<link rel="stylesheet" href="style2.css">
+	
+	<!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.4.1/dist/esri-leaflet.js"
+    integrity="sha512-xY2smLIHKirD03vHKDJ2u4pqeHA7OQZZ27EjtqmuhDguxiUvdsOuXMwkg16PQrm9cgTmXtoxA6kwr8KBy3cdcw=="
+    crossorigin=""></script>
+	
+	<!-- ESRI Geocoder CDN -->
+	<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+    <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">  
+	<!--
+	<script src="Dependance/esri-leaflet-geocoder.js"></script>
+	<script src="Dependance/esri-leaflet.js"></script>
+	<link rel="stylesheet" href="Dependance/esri-leaflet-geocoder.css"/> -->
+	
+	
+	<!-- VectorGrid -->
+	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
+	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
+	
+	<!-- DATA -->
+	<script src="data/BV_Assomption2.js"></script>
+	
+	<!-- VectorGrid -->
+	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
+	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
+	<script src="data/PubliqueJS.js"></script>
+	
+    
+
+   
+	
+<style>	
+.leaflet-bar a, .leaflet-bar a:hover {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.leaflet-control-zoom-out {
+    font: bold 26px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+}
+
+.leaflet-control-zoom-in {
+    font: bold 26px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+}
+
+
+.geocoder-control-input {
+    position: absolute;
+	margin-top: 235px;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-image: url(icone/loupe.svg);
+    background-size: 27px;
+	border-radius: 0.7em;
+	box-shadow: 0 0 5px #333;
+    border: 0;
+    text-indent: 0px;
+    font-size: 13px;
+    height: 26px;
+    width: 100%;
+    padding: 8px;
+    line-height: 26px;
+	background-position: right 7px bottom 7px;
+    cursor: pointer;
+}
+
+
+
+.geocoder-control-suggestions {
+    width: 100%;
+    position: absolute;
+    top: 270px;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    overflow: hidden;
+    display: none;
+}
+
+</style>	
+	
+
+
+</head>
+
+<body>
+
+<!--Fenêtre d'information item 1  --> 
+<div  id = "Info1"class = "Info1ClasseD">
+	<p style="text-align:center; font-size: 12px; color:grey; ">MERN 2020. (Sud du Québec)</p>
+	</div>
+	
+<!--Fenêtre d'information item 2  --> 
+<div  id = "Info2"class = "Info2ClasseD">
+	<p style="text-align:left; font-size: 12px; color:grey; ">CEHQ 2018.</p>
+	</div>
+	
+<!--Fenêtre de Basemap  --> 
+
+<div  id = "InfoBasemap"class = "InfoBasemapClasseD">
+    <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Fonds de carte</p>
+	<p id = "Basemap1"class = "SelectBasemap">Esri Imagery</p>
+	<p id = "Basemap2"class = "SelectBasemap">MFFP Imagery</p>
+	<p id = "Basemap3"class = "SelectBasemap">MFFP Relief</p>
+	<p id = "Basemap4"class = "SelectBasemap">Gouv. Basemap</p>
+	<p id = "Basemap5"class = "SelectBasemapF">Default (cartoDB)</p>
+	</div>
+
+	
+<!--Fenêtre de Recherche  --> 
+
+<div  id = "InfoRecherche"class = "InfoRechercheClasseD">
+<p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Informations</p>
+    <p id = "Recherche1"class = "SelectRecherche">Rechercher une adresse</p>
+	<p id = "Recherche1"class = "SelectRecherche">Rechercher une ville</p>
+	</div>
+
+
+<!--Fenêtre de la liste des couches  --> 
+<div id="fenetre1" class = "fenetre1class">
+	<b id = "title" >Couches </b>
+	<br />
+	<br />
+	<!--Couche 1  -->	
+	<b id = "item1" class = "item1debut" >Terre publique</b>
+	<span id="logo" class = "logoclass"></span>
+	<label class="switch">
+  <input type="checkbox" id="myCheck" onclick="myFunction()">
+  <span class="slider round"></span>
+</label>
+	<br />
+	<br />
+	<!--Couche 2  -->	
+	<b id = "item2" class = "item2debut" >Bassin versant</b>
+	<span id="logo2" class = "logo2class"></span>
+		<label class="switch">
+	 <input type="checkbox" id="myCheck2" onclick="myFunction2()">
+  <span class="slider round"></span>
+</label>
+	<!--Icone du Basemap  -->
+<span id="Basemap" class = "Basemapclass"></span>
+<span id="Loupe" class = "Loupeclass"></span>
+
+</div>
+
+<div id = "map"></div>
+
+
+    <script>
+	
+        var map = L.map('map',{ zoomControl: false }).setView([47.416115, -73.770760],7);
+		
+		new L.Control.Zoom({ position: 'topright' }).addTo(map);
+		
+		//ERSI SEARCH BAR
+        var searchControl = new L.esri.Controls.Geosearch({ position: 'topleft' }).addTo(map);
+        var results = new L.LayerGroup().addTo(map);
+
+        searchControl.on('results', function(data){
+        results.clearLayers();
+        for (var i = data.results.length - 1; i >= 0; i--) {
+        results.addLayer(L.marker(data.results[i].latlng));
+       }
+        });
+		
+		var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	    subdomains: 'abcd',
+	    maxZoom: 19
+        }).addTo(map);
+		
+		var esribasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+		maxZoom: 20
+	    });
+		
+		//TEST WMS ORTHO MFFP
+		var wmsLayer5 = L.tileLayer.wms('https://servicesmatriciels.mern.gouv.qc.ca/erdas-iws/ogc/wms/Inventaire_Ecoforestier?', {
+        layers: 'Inventaire_Ecoforestier',
+		maxZoom: 20
+        })
+		
+		//TEST WMS RELIEF MFFP
+		var wmsLayer1 = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
+        layers: 'lidar_ombre'
+        })
+		
+		//Basemap Gouv.Qc
+		var wmsLayer11 = L.tileLayer(
+        "https://geoegl.msp.gouv.qc.ca/carto/wmts?" +
+        "&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0" +
+        "&STYLE=default" + 
+        "&TILEMATRIXSET=EPSG_3857" +
+        "&FORMAT=image/png"+
+        "&LAYER=carte_gouv_qc_public"+
+	    "&TILEMATRIX={z}" +
+        "&TILEROW={y}" +
+        "&TILECOL={x}",
+	{
+		minZoom : 0,
+		maxZoom : 18,
+        attribution : "MFFP",
+		tileSize : 256 ,
+		opacity : 5
+	}
+    );
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Fenêtre Information item1
+	    function aa() {
+        document.getElementById("Info1").className = "Info1ClasseF";
+        };
+		document.getElementById("logo").addEventListener("mouseover", aa);
+		
+		function bb() {
+        document.getElementById("Info1").className = "Info1ClasseD";
+        };
+		document.getElementById("logo").addEventListener("mouseout", bb);
+		
+		//Fenêtre Information item2
+	    function aa2() {
+        document.getElementById("Info2").className = "Info2ClasseF";
+        };
+		document.getElementById("logo2").addEventListener("mouseover", aa2);
+		
+		function bb2() {
+        document.getElementById("Info2").className = "Info2ClasseD";
+        };
+		document.getElementById("logo2").addEventListener("mouseout", bb2);
+		
+		
+		//Fenêtre de la liste des Basemap
+	    function open() {
+        document.getElementById("InfoBasemap").className = "InfoBasemapClasseF";
+		document.getElementById("Basemap").className = "BasemapclassF";
+		closeloupe(); //Fermer la loupe
+        };
+		document.getElementById("Basemap").addEventListener("mouseover", open);
+		
+		function close() {
+        document.getElementById("InfoBasemap").className = "InfoBasemapClasseD";
+		document.getElementById("Basemap").className = "Basemapclass";
+        };
+		document.getElementById("InfoBasemap").addEventListener("mouseleave", close);
+
+		
+		
+		//Selection - Basemap1
+	    function B1() {
+        document.getElementById("Basemap1").className = "SelectBasemapF";
+		esribasemap.addTo(map);
+		map.removeLayer(CartoDB_Positron);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer1);
+		map.removeLayer(wmsLayer11);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap1").addEventListener("click", B1);
+		
+		//Selection - Basemap2
+	    function B2() {
+        document.getElementById("Basemap2").className = "SelectBasemapF";
+		wmsLayer5.addTo(map);
+		map.removeLayer(CartoDB_Positron);
+		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer1);
+		map.removeLayer(wmsLayer11);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap2").addEventListener("click", B2);
+		
+		//Selection - Basemap3
+	    function B3() {
+        document.getElementById("Basemap3").className = "SelectBasemapF";
+		wmsLayer1.addTo(map);
+		map.removeLayer(CartoDB_Positron);
+		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer11);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap3").addEventListener("click", B3);
+		
+		//Selection - Basemap4
+	    function B4() {
+        document.getElementById("Basemap4").className = "SelectBasemapF";
+		wmsLayer11.addTo(map);
+		map.removeLayer(CartoDB_Positron);
+		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer1);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap4").addEventListener("click", B4);
+		
+		//Selection - Basemap5
+	    function B5() {
+        document.getElementById("Basemap5").className = "SelectBasemapF";
+		CartoDB_Positron.addTo(map);
+		map.removeLayer(esribasemap);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap5").addEventListener("click", B5);
+		
+		
+		//Fenêtre de la loupe
+	    function openloupe() {
+		document.getElementById("InfoRecherche").className = "InfoRechercheClasseF";
+		document.getElementById("Loupe").className = "LoupeclassF";
+		close(); //Fermer la fenetre du basemap
+        };
+		document.getElementById("Loupe").addEventListener("mouseover", openloupe);
+		
+		function closeloupe() {
+        document.getElementById("Loupe").className = "Loupeclass";
+		document.getElementById("InfoRecherche").className = "InfoRechercheClasseD";
+        };
+		document.getElementById("InfoRecherche").addEventListener("mouseleave", closeloupe);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	///////////// Item1	
+  function myFunction() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    vectorGrid.addTo(map);
+	//document.getElementById("item1").className = "item1fin";	
+  } else {
+    map.removeLayer(vectorGrid);
+	//document.getElementById("item1").className = "item1debut";
+  }
+}
+	
+///////////// Item2	
+	function myFunction2() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck2");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+   bv1.addTo(map);
+	//document.getElementById("item2").className = "item2fin";	
+  } else {
+    map.removeLayer(bv1);
+	//document.getElementById("item2").className = "item2debut";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//BASSIN VERSANT
+		// symbologie du bassin versant
+		function style(feature) {
+        return {
+        fillColor: '#ECFB03',
+        weight: 1,
+        opacity: 1,
+        color: 'red',
+        dashArray: '3',
+        fillOpacity: 0.3
+        };
+        }
+
+       var data = bv;
+       var bv1 = L.geoJson(data ,{
+	   style: style,
+       onEachFeature: function(feature, featureLayer) {
+	   featureLayer.bindPopup(feature.properties.NOM_COURS_);
+       }
+       });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		map.createPane('labels');
+        map.getPane('labels').style.zIndex = 650;
+
+		// TEST VECTORTILES
+		var highlight;
+		var clearHighlight = function() {
+			if (highlight) {
+				vectorGrid.resetFeatureStyle(highlight);
+			}
+			highlight = null;
+		};
+		var vectorGrid = L.vectorGrid.slicer( testvt, {
+			rendererFactory: L.svg.tile,
+			pane: 'labels',
+			  minZoom: 1,
+       maxZoom: 18,
+			vectorTileLayerStyles: {
+				sliced: function(properties, zoom) {
+					return {
+						fillColor: 'blue',
+						fillOpacity: 0.3,
+	 					//fillOpacity: 1,
+						stroke: true,
+						fill: true,
+						//color: 'blue',
+ 							//opacity: 0.2,
+						weight: 0,
+					}
+				}
+			},
+			interactive: false,
+			getFeatureId: function(f) {
+				return f.properties.OBJECTID;
+			}
+		})
+		.on('mouseover', function(e) {
+			var properties = e.layer.properties;
+			L.popup()
+				.setContent(properties.CARTE_20K)
+				.setLatLng(e.latlng)
+				.openOn(map);
+
+			clearHighlight();
+			highlight = properties.OBJECTID;
+
+			
+			var style = {
+				//fillColor: '#800026',
+				//fillOpacity: 0.5,
+				//fillOpacity: 1,
+				//stroke: true,
+				//fill: true,
+				color: 'red',
+				//opacity: 1,
+				weight: 4,
+			};
+
+			vectorGrid.setFeatureStyle(properties.OBJECTID, style);
+		});
+
+		map.on('click', clearHighlight);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    </script>
+</body>
+</html>
