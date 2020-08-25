@@ -43,64 +43,10 @@
    
 	
 <style>	
-.leaflet-bar a, .leaflet-bar a:hover {
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-}
-
-.leaflet-control-zoom-out {
-    font: bold 26px 'Lucida Console', Monaco, monospace;
-    text-indent: 1px;
-}
-
-.leaflet-control-zoom-in {
-    font: bold 26px 'Lucida Console', Monaco, monospace;
-    text-indent: 1px;
-}
-
-
-.geocoder-control-input {
-    position: absolute;
-	margin-top: 235px;
-    left: 0;
-    top: 0;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-image: url(icone/loupe.svg);
-    background-size: 27px;
-	border-radius: 0.7em;
-	box-shadow: 0 0 5px #333;
-    border: 0;
-    text-indent: 0px;
-    font-size: 13px;
-    height: 26px;
-    width: 100%;
-    padding: 8px;
-    line-height: 26px;
-	background-position: right 7px bottom 7px;
-    cursor: pointer;
-}
 
 
 
-.geocoder-control-suggestions {
-    width: 100%;
-    position: absolute;
-    top: 270px;
-    left: 0;
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    overflow: hidden;
-    display: none;
-}
+
 
 </style>	
 	
@@ -121,7 +67,6 @@
 	</div>
 	
 <!--Fenêtre de Basemap  --> 
-
 <div  id = "InfoBasemap"class = "InfoBasemapClasseD">
     <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Fonds de carte</p>
 	<p id = "Basemap1"class = "SelectBasemap">Esri Imagery</p>
@@ -130,10 +75,8 @@
 	<p id = "Basemap4"class = "SelectBasemap">Gouv. Basemap</p>
 	<p id = "Basemap5"class = "SelectBasemapF">Default (cartoDB)</p>
 	</div>
-
 	
 <!--Fenêtre de Recherche  --> 
-
 <div  id = "InfoRecherche"class = "InfoRechercheClasseD">
 <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Informations</p>
     <p id = "Recherche1"class = "SelectRecherche">Rechercher une adresse</p>
@@ -143,9 +86,8 @@
 
 <!--Fenêtre de la liste des couches  --> 
 <div id="fenetre1" class = "fenetre1class">
-	<b id = "title" >Couches </b>
-	<br />
-	<br />
+
+
 	<!--Couche 1  -->	
 	<b id = "item1" class = "item1debut" >Terre publique</b>
 	<span id="logo" class = "logoclass"></span>
@@ -178,7 +120,7 @@
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 		
 		//ERSI SEARCH BAR
-        var searchControl = new L.esri.Controls.Geosearch({ position: 'topleft' }).addTo(map);
+        var searchControl = new L.esri.Controls.Geosearch({ position: 'topright' }).addTo(map);
         var results = new L.LayerGroup().addTo(map);
 
         searchControl.on('results', function(data){
@@ -346,6 +288,9 @@
         document.getElementById("Basemap5").className = "SelectBasemapF";
 		CartoDB_Positron.addTo(map);
 		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer1);
+		map.removeLayer(wmsLayer11);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap2").className = "SelectBasemap";
