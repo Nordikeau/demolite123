@@ -16,7 +16,7 @@
 .logoclass {
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
-    left: 60%;
+    left: 80%;
      height: 18px;
 	width: 18px;
 	top : 11px;
@@ -29,7 +29,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .logo2class {
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
-    left: 60%;
+    left: 80%;
      height: 18px;
 	width: 18px;
 	top : 48px;
@@ -108,7 +108,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     right: 0;
     margin: 10px;
     min-height: 50px;
-    width: 260px;
+    width: 200px;
     left: 0%;
     border-radius: .4em;
     box-shadow: 0 0 9px #999;
@@ -123,15 +123,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	padding: 2px;
 }
 
-.item1fin {
-	text-align:left; 
-	font-size: 13px;
-	color:black;
-	font-weight:bold; 
-	background-color: #3363ff3d;
-    padding: 2px;
-    border-radius: .4em;
-}
+
 
 .item2debut {
 	text-align:left; 
@@ -141,15 +133,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	padding: 2px;
 }
 
-.item2fin {
-	text-align:left; 
-	font-size: 13px;
-	color:black;
-	font-weight:bold; 
-	background-color: #f7f615ad;
-    padding: 2px;
-    border-radius: .4em;
-}
+
 
 /*    fenêtre d'information Item1     */
 .Info1ClasseD {
@@ -166,7 +150,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 289px;
+    left: 230px;
 	top: 11px;
     border-radius: .4em;
     box-shadow: 0 0 10px #999;
@@ -188,12 +172,41 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 289px;
+    left: 230px;
     top: 48px;
     border-radius: .4em;
     box-shadow: 0 0 10px #999;
 }
 /*    fin de la fenêtre d'information     */
+
+/*    Description de la carte     */
+.DescriptionCarteClassD {
+    display:none;
+}
+
+.DescriptionCarteClassF {
+   z-index: 1000;
+	height: 400px;
+  width: 300px;
+  top: 30%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -150px;
+  position: absolute;
+  border-radius: .4em;
+    box-shadow: 0 0 10px #999;
+  background-color: white;
+}
+
+#close {
+	position: absolute;
+	left: 90%;
+	cursor: pointer;
+}
+#close:hover {
+  box-shadow: 0 0 10px red;
+}
+/*    Description de la carte     */
 
 /*    fenêtre de Basemap    */
 .InfoBasemapClasseD {

@@ -66,6 +66,13 @@
 	<p style="text-align:left; font-size: 12px; color:grey; ">CEHQ 2018.</p>
 	</div>
 	
+<!--Fenêtre description de la carte  --> 
+<div  id = "DescriptionCarte"class = "DescriptionCarteClassD">
+    <img src="icone/delete-button.svg" alt="HTML5" id="close"  width="25" height="25">
+	<br />
+	<b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Description</b>
+	</div>
+	
 <!--Fenêtre de Basemap  --> 
 <div  id = "InfoBasemap"class = "InfoBasemapClasseD">
     <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Fonds de carte</p>
@@ -76,17 +83,16 @@
 	<p id = "Basemap5"class = "SelectBasemapF">Default (cartoDB)</p>
 	</div>
 	
-<!--Fenêtre de Recherche  --> 
+<!--Fenêtre d'informations  --> 
 <div  id = "InfoRecherche"class = "InfoRechercheClasseD">
 <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Informations</p>
-    <p id = "Recherche1"class = "SelectRecherche">Rechercher une adresse</p>
-	<p id = "Recherche1"class = "SelectRecherche">Rechercher une ville</p>
+    <p id = "Recherche1"class = "SelectRecherche">Description de la carte</p>
+	<p id = "Recherche1"class = "SelectRecherche">Données utilisées</p>
 	</div>
 
 
 <!--Fenêtre de la liste des couches  --> 
 <div id="fenetre1" class = "fenetre1class">
-
 
 	<!--Couche 1  -->	
 	<b id = "item1" class = "item1debut" >Terre publique</b>
@@ -300,7 +306,7 @@
 		document.getElementById("Basemap5").addEventListener("click", B5);
 		
 		
-		//Fenêtre de la loupe
+		//Fenêtre du point d'intérogation
 	    function openloupe() {
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseF";
 		document.getElementById("Loupe").className = "LoupeclassF";
@@ -314,9 +320,18 @@
         };
 		document.getElementById("InfoRecherche").addEventListener("mouseleave", closeloupe);
 		
+		//Selection des description
+	    function openDesc() {
+        document.getElementById("Recherche1").className = "SelectRechercheF";
+		document.getElementById("DescriptionCarte").className = "DescriptionCarteClassF";
+        };
+		document.getElementById("Recherche1").addEventListener("click", openDesc);
 		
-		
-		
+		function closeDesc() {
+        document.getElementById("Recherche1").className = "SelectRecherche";
+		document.getElementById("DescriptionCarte").className = "DescriptionCarteClassD";
+        };
+		document.getElementById("close").addEventListener("click", closeDesc);
 		
 		
 		
