@@ -69,13 +69,43 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	box-shadow: 0 0 6px #333;
 }
 
+.Topoclass {
+	background-image: url(icone/topography.svg);
+    position: absolute;
+    left: 0px;
+    height: 25px;
+    width: 25px;
+    top: 140px;
+    background-color: white;
+    cursor: pointer;
+    border: 6px solid white;
+    padding: 2px;
+    border-radius: 0.7em;
+	box-shadow: 0 0 6px #333;
+}
+
+.TopoclassF {
+	background-image: url(icone/topography.svg);
+    position: absolute;
+    left: 0px;
+    height: 25px;
+    width: 25px;
+    top: 140px;
+    background-color: #afeeee;
+    cursor: pointer;
+    border: 6px solid #afeeee;
+    padding: 2px;
+    border-radius: 0.7em;
+	box-shadow: 0 0 6px #333;
+}
+
 .Loupeclass {
 	background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     position: absolute;
     left: 0px;
     height: 20px;
     width: 20px;
-    top: 140px;
+    top: 190px;
     background-color: white;
     cursor: pointer;
     border: 6px solid white;
@@ -90,7 +120,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 20px;
     width: 20px;
-    top: 140px;
+    top: 190px;
     background-color: #afeeee;
     cursor: pointer;
     border: 6px solid #afeeee;
@@ -135,7 +165,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 
 
 
-/*    fenêtre d'information Item1     */
+/*    infobulle Item1     */
 .Info1ClasseD {
     display:none;
 }
@@ -157,7 +187,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 }
 /*    fin de la fenêtre d'information     */
 
-/*    fenêtre d'information Item2     */
+/*    Infobulle Item2     */
 .Info2ClasseD {
     display:none;
 }
@@ -198,15 +228,64 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
   background-color: white;
 }
 
-#close {
-	position: absolute;
-	left: 90%;
-	cursor: pointer;
+#CloseDesc {
+	display: inline-block;
+    text-align: left;
+    font-size: 11px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #8B0000;
+    background-color: #8B0000;
+    border-radius: .5em;
+        margin-left: 83%;
+    margin-top: 2%;
+    padding: 1px;
 }
-#close:hover {
-  box-shadow: 0 0 10px red;
+#CloseDesc:hover {
+  background-color: grey;
+  border: 3px solid grey;
 }
-/*    Description de la carte     */
+
+
+/*    Afficher les coordonnées    */
+.CoordonneesClassD {
+    display:none;
+}
+
+.CoordonneesClassF {
+  position: absolute;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    right: 0;
+    margin: 10px;
+    min-height: 55px;
+    width: 200px;
+    left: 320px;
+    border-radius: .4em;
+    box-shadow: 0 0 9px #999;
+}
+
+#CloseCoor {
+	display: inline-block;
+    text-align: left;
+    font-size: 11px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #8B0000;
+    background-color: #8B0000;
+    border-radius: .5em;
+        margin-left: 80%;
+    margin-top: 0%
+    padding: 1px;
+}
+#CloseCoor:hover {
+  background-color: grey;
+  border: 3px solid grey;
+}
+
 
 /*    fenêtre de Basemap    */
 .InfoBasemapClasseD {
@@ -222,13 +301,35 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     right: 0;
     margin: 10px;
     min-height: 10px;
-    width: 130px;
+    width: 160px;
     left: 50px;
     top: 92px;
     border-radius: .4em;
     box-shadow: 0 0 10px #999;
 }
-/*    fin de la fenêtre d'information     */
+/*    fin de la fenêtre de Basemap    */
+
+/*    fenêtre de Topo   */
+.InfoTopoClasseD {
+    display:none;
+}
+
+.InfoTopoClasseF {
+	font-weight: bold;
+    position: absolute;
+    z-index: 2000;
+    background: white;
+    padding: 3px;
+    right: 0;
+    margin: 10px;
+    min-height: 10px;
+    width: 160px;
+    left: 50px;
+    top: 142px;
+    border-radius: .4em;
+    box-shadow: 0 0 10px #999;
+}
+/*    fin de la fenêtre de Basemap    */
 
 .SelectBasemap {
 	text-align:left; 
@@ -252,11 +353,11 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	color:black;
 	background-color: #AFEEEE;
 	border-radius: .2em;
-	padding: 4px;
+	padding: 2px;
 	cursor: pointer;
 }
 
-/*    fenêtre de Recherche    */
+/*    fenêtre d'information ?    */
 .InfoRechercheClasseD {
     display:none;
 }
@@ -271,9 +372,9 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
 	text-align : center;
-    width: 155px;
+    width: 215px;
     left: 50px;
-    top: 142px;
+    top: 192px;
     border-radius: .4em;
     box-shadow: 0 0 10px #999;
 }
@@ -285,7 +386,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	font-size: 12px; 
 	color:grey;
 	padding: 2px;
-	cursor: pointer;
+	cursor: pointer;	
 }
 .SelectRecherche:hover {
     text-align:left; 
@@ -302,9 +403,29 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	color:black;
 	border-radius: .2em;
 	background-color: #AFEEEE;
-	padding: 4px;
+	padding: 2px;
 	cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

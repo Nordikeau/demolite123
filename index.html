@@ -18,12 +18,7 @@
 	<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
     <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">  
-	<!--
-	<script src="Dependance/esri-leaflet-geocoder.js"></script>
-	<script src="Dependance/esri-leaflet.js"></script>
-	<link rel="stylesheet" href="Dependance/esri-leaflet-geocoder.css"/> -->
-	
-	
+
 	<!-- VectorGrid -->
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
@@ -38,39 +33,23 @@
 	<script src="data/RESTE_LANO_LAUR_JS.js"></script>
 	
 	
-    
-
-   
-	
 <style>	
-
-
-
-
 
 </style>	
 	
-
 
 </head>
 
 <body>
 
-<!--Fenêtre d'information item 1  --> 
+<!--Fenêtre d'infobulle item 1  --> 
 <div  id = "Info1"class = "Info1ClasseD">
 	<p style="text-align:center; font-size: 12px; color:grey; ">MERN 2020. (Sud du Québec)</p>
 	</div>
 	
-<!--Fenêtre d'information item 2  --> 
+<!--Fenêtre d'infobulle item 2  --> 
 <div  id = "Info2"class = "Info2ClasseD">
 	<p style="text-align:left; font-size: 12px; color:grey; ">CEHQ 2018.</p>
-	</div>
-	
-<!--Fenêtre description de la carte  --> 
-<div  id = "DescriptionCarte"class = "DescriptionCarteClassD">
-    <img src="icone/delete-button.svg" alt="HTML5" id="close"  width="25" height="25">
-	<br />
-	<b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Description</b>
 	</div>
 	
 <!--Fenêtre de Basemap  --> 
@@ -78,18 +57,47 @@
     <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Fonds de carte</p>
 	<p id = "Basemap1"class = "SelectBasemap">Esri Imagery</p>
 	<p id = "Basemap2"class = "SelectBasemap">MFFP Imagery</p>
-	<p id = "Basemap3"class = "SelectBasemap">MFFP Relief</p>
 	<p id = "Basemap4"class = "SelectBasemap">Gouv. Basemap</p>
-	<p id = "Basemap5"class = "SelectBasemapF">Default (cartoDB)</p>
+	<p id = "Basemap5"class = "SelectBasemap">CartoDB</p>
+	<p id = "Basemap7"class = "SelectBasemap">Mapbox Outdoors*</p>
+	<p id = "Basemap6"class = "SelectBasemapF">Default (Mapbox Streets)</p>
+	</div>
+	
+<!--Fenêtre de Topo  --> 
+<div  id = "InfoTopo"class = "InfoTopoClasseD">
+    <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Topographie</p>
+	<p id = "Basemap3"class = "SelectBasemap">MFFP Relief ombre</p>
+	<p id = "Basemap3a"class = "SelectBasemap">MFFP Relief pente</p>
 	</div>
 	
 <!--Fenêtre d'informations  --> 
 <div  id = "InfoRecherche"class = "InfoRechercheClasseD">
 <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:black; background-color:#ddd ;padding: 4px; " >Informations</p>
     <p id = "Recherche1"class = "SelectRecherche">Description de la carte</p>
-	<p id = "Recherche1"class = "SelectRecherche">Données utilisées</p>
+	<p id = "Recherche2"class = "SelectRecherche">Données utilisées</p>
+	<p id = "Recherche3"class = "SelectRecherche">Afficher le cadre administratif</p>
+	<p id = "Recherche4"class = "SelectRecherche">Afficher les coordonnées</p>
+	<p id = "Recherche5"class = "SelectRecherche">Afficher position dans Google Map</p>
+	<p id = "Recherche6"class = "SelectRecherche">Afficher position dans Street view</p>
 	</div>
 
+<!--Fenêtre description de la carte  --> 
+<div  id = "DescriptionCarte"class = "DescriptionCarteClassD">
+<b id = "CloseDesc" >Fermer</b>
+	<b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Description</b>
+	</div>
+	
+<!--Fenêtre Afficher les coordonnées  --> 
+<div  id = "Coordonnees"class = "CoordonneesClassD">
+    <b id = "CloseCoor" >Fermer</b>
+	<br />
+    <b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Cliquer sur la carte</b>
+	<br />
+	<br />
+	<div style="text-align:left; font-size: 12px; color:grey; "id = "lat1" class = "box"></div>
+	<div style="text-align:left; font-size: 12px; color:grey; "id = "lon1" class = "box"></div>
+	</div>
+	
 
 <!--Fenêtre de la liste des couches  --> 
 <div id="fenetre1" class = "fenetre1class">
@@ -112,6 +120,7 @@
 </label>
 	<!--Icone du Basemap  -->
 <span id="Basemap" class = "Basemapclass"></span>
+<span id="Topo" class = "Topoclass"></span>
 <span id="Loupe" class = "Loupeclass"></span>
 
 </div>
@@ -121,7 +130,7 @@
 
     <script>
 	
-        var map = L.map('map',{ zoomControl: false }).setView([47.416115, -73.770760],7);
+        var map = L.map('map',{ zoomControl: false }).setView([47.416115, -73.770760],6);
 		
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 		
@@ -135,12 +144,13 @@
         results.addLayer(L.marker(data.results[i].latlng));
        }
         });
-		
+
+	////////////////// BASEMAPS //////////////////		
 		var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	    subdomains: 'abcd',
 	    maxZoom: 19
-        }).addTo(map);
+        });
 		
 		var esribasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
@@ -157,6 +167,31 @@
 		var wmsLayer1 = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_ombre'
         })
+		
+		//TEST WMS PENTE MFFP
+		var wmsLayerPente = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
+        layers: 'lidar_pentes'
+        })
+		
+		// MAPBOX BASEMAPS
+		
+		var MP =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+    }).addTo(map);
+	
+	var MPO =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/outdoors-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+    });
 		
 		//Basemap Gouv.Qc
 		var wmsLayer11 = L.tileLayer(
@@ -180,11 +215,9 @@
 		
 		
 		
+	
 		
-		
-		
-		
-		
+		////////////////// INFOBULLE DES ITEMS DE LA LÉGENDE //////////////////
 		
 		//Fenêtre Information item1
 	    function aa() {
@@ -209,11 +242,14 @@
 		document.getElementById("logo2").addEventListener("mouseout", bb2);
 		
 		
+		////////////////// FENÊTRE DES BASEMAP //////////////////
+		
 		//Fenêtre de la liste des Basemap
 	    function open() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseF";
 		document.getElementById("Basemap").className = "BasemapclassF";
 		closeloupe(); //Fermer la loupe
+		closetopo(); //Fermer la fenetre de topo
         };
 		document.getElementById("Basemap").addEventListener("mouseover", open);
 		
@@ -224,7 +260,6 @@
 		document.getElementById("InfoBasemap").addEventListener("mouseleave", close);
 
 		
-		
 		//Selection - Basemap1
 	    function B1() {
         document.getElementById("Basemap1").className = "SelectBasemapF";
@@ -233,11 +268,15 @@
 		map.removeLayer(wmsLayer5);
 		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
+		map.removeLayer(MP);
+		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap2").className = "SelectBasemap";
 		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
+		document.getElementById("Basemap6").className = "SelectBasemap";
+		document.getElementById("Basemap7").className = "SelectBasemap";
         };
 		document.getElementById("Basemap1").addEventListener("click", B1);
 		
@@ -249,29 +288,18 @@
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
+		map.removeLayer(MP);
+		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
+		document.getElementById("Basemap6").className = "SelectBasemap";
+		document.getElementById("Basemap7").className = "SelectBasemap";
         };
 		document.getElementById("Basemap2").addEventListener("click", B2);
 		
-		//Selection - Basemap3
-	    function B3() {
-        document.getElementById("Basemap3").className = "SelectBasemapF";
-		wmsLayer1.addTo(map);
-		map.removeLayer(CartoDB_Positron);
-		map.removeLayer(esribasemap);
-		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer11);
-			//Enlever la classe de selection au autres basemap
-		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap1").className = "SelectBasemap";
-		document.getElementById("Basemap4").className = "SelectBasemap";
-		document.getElementById("Basemap5").className = "SelectBasemap";
-        };
-		document.getElementById("Basemap3").addEventListener("click", B3);
 		
 		//Selection - Basemap4
 	    function B4() {
@@ -281,11 +309,15 @@
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer5);
 		map.removeLayer(wmsLayer1);
+		map.removeLayer(MP);
+		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap2").className = "SelectBasemap";
 		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
+		document.getElementById("Basemap6").className = "SelectBasemap";
+		document.getElementById("Basemap7").className = "SelectBasemap";
         };
 		document.getElementById("Basemap4").addEventListener("click", B4);
 		
@@ -297,20 +329,117 @@
 		map.removeLayer(wmsLayer5);
 		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
+		map.removeLayer(MP);
+		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap2").className = "SelectBasemap";
 		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap6").className = "SelectBasemap";
+		document.getElementById("Basemap7").className = "SelectBasemap";
         };
 		document.getElementById("Basemap5").addEventListener("click", B5);
 		
+		//Selection - Basemap6
+	    function B6() {
+        document.getElementById("Basemap6").className = "SelectBasemapF";
+		MP.addTo(map);
+		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer1);
+		map.removeLayer(wmsLayer11);
+		map.removeLayer(CartoDB_Positron);
+		map.removeLayer(MPO);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+		document.getElementById("Basemap7").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap6").addEventListener("click", B6);
 		
-		//Fenêtre du point d'intérogation
+		//Selection - Basemap7
+	    function B7() {
+        document.getElementById("Basemap7").className = "SelectBasemapF";
+		MPO.addTo(map);
+		map.removeLayer(esribasemap);
+		map.removeLayer(wmsLayer5);
+		map.removeLayer(wmsLayer1);
+		map.removeLayer(wmsLayer11);
+		map.removeLayer(CartoDB_Positron);
+			//Enlever la classe de selection au autres basemap
+		document.getElementById("Basemap1").className = "SelectBasemap";
+		document.getElementById("Basemap2").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap4").className = "SelectBasemap";
+		document.getElementById("Basemap5").className = "SelectBasemap";
+		document.getElementById("Basemap6").className = "SelectBasemap";
+        };
+		document.getElementById("Basemap7").addEventListener("click", B7);
+		
+		
+		////////////////// FENÊTRE DE TOPO//////////////////
+		
+		//Fenêtre de la liste des topo
+	    function opentopo() {
+        document.getElementById("InfoTopo").className = "InfoTopoClasseF";
+		document.getElementById("Topo").className = "TopoclassF";
+		closeloupe(); //Fermer la loupe
+		close(); //Fermer la fenetre du basemap
+        };
+		document.getElementById("Topo").addEventListener("mouseover", opentopo);
+		
+		function closetopo() {
+        document.getElementById("InfoTopo").className = "InfoTopoClasseD";
+		document.getElementById("Topo").className = "Topoclass";
+        };
+		document.getElementById("InfoTopo").addEventListener("mouseleave", closetopo);
+		
+		//Selection - Basemap3
+	    function B3() {
+		if (map.hasLayer(wmsLayer1)) {
+		map.removeLayer(wmsLayer1);
+		document.getElementById("Basemap3").className = "SelectBasemap";
+            }
+			else{
+        document.getElementById("Basemap3").className = "SelectBasemapF";
+		wmsLayer1.addTo(map);
+				//Enlever la classe de selection au autres basemap
+        map.removeLayer(wmsLayerPente);
+		document.getElementById("Basemap3a").className = "SelectBasemap";}
+        };
+		document.getElementById("Basemap3").addEventListener("click", B3);
+		
+		//Selection - Basemap3a
+	    function B3aa() {
+		if (map.hasLayer(wmsLayerPente)) {
+		map.removeLayer(wmsLayerPente);
+		document.getElementById("Basemap3a").className = "SelectBasemap";
+            }
+			else{
+        document.getElementById("Basemap3a").className = "SelectBasemapF";
+		wmsLayerPente.addTo(map);
+			//Enlever la classe de selection au autres basemap
+        map.removeLayer(wmsLayer1);
+		document.getElementById("Basemap3").className = "SelectBasemap";}
+        };
+		document.getElementById("Basemap3a").addEventListener("click", B3aa);
+		
+		
+		
+		
+		
+		////////////////// FENÊTRE DU POINT D'INTÉROGATION //////////////////
+		
+		////Fenêtre du point d'intérogation
 	    function openloupe() {
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseF";
 		document.getElementById("Loupe").className = "LoupeclassF";
 		close(); //Fermer la fenetre du basemap
+		closetopo(); //Fermer la fenetre de topo
         };
 		document.getElementById("Loupe").addEventListener("mouseover", openloupe);
 		
@@ -320,10 +449,12 @@
         };
 		document.getElementById("InfoRecherche").addEventListener("mouseleave", closeloupe);
 		
-		//Selection des description
+		////Selection de la description de la carte
 	    function openDesc() {
         document.getElementById("Recherche1").className = "SelectRechercheF";
 		document.getElementById("DescriptionCarte").className = "DescriptionCarteClassF";
+			//Remmetre par défaut recherche1
+		closeCoor();
         };
 		document.getElementById("Recherche1").addEventListener("click", openDesc);
 		
@@ -331,17 +462,33 @@
         document.getElementById("Recherche1").className = "SelectRecherche";
 		document.getElementById("DescriptionCarte").className = "DescriptionCarteClassD";
         };
-		document.getElementById("close").addEventListener("click", closeDesc);
+		document.getElementById("CloseDesc").addEventListener("click", closeDesc);
+		
+		////Selection de l'affichage des coordonnées
+	    function openCoor() {
+		document.getElementById("Recherche4").className = "SelectRechercheF";
+        document.getElementById("Coordonnees").className = "CoordonneesClassF";
+			//Remmetre par défaut recherche1
+		closeDesc();
+        };
+		document.getElementById("Recherche4").addEventListener("click", openCoor);
+		
+		function closeCoor() {
+        document.getElementById("Coordonnees").className = "CoordonneesClassD";
+		document.getElementById("Recherche4").className = "SelectRecherche";
+        };
+		document.getElementById("CloseCoor").addEventListener("click", closeCoor);
+		
+		var lat = 46.456433;
+		var lon = 69.456433;
+			//Remmetre par défaut recherche1
+		$('#lat1').html("<b  style='text-align:left; color: grey;font-weight: 100;  font-size : 12px'>Latitude : </b>"+lat.toFixed(6));
+		$('#lon1').html("<b  style='text-align:left;color: grey;font-weight: 100;  font-size : 12px'>Longitude : </b>"+lon.toFixed(6));
 		
 		
+	////////////////// CHECKBOX //////////////////	
 		
-		
-		
-		
-		
-		
-		
-	///////////// Item1	
+	// Item1	
   function myFunction() {
   // Get the checkbox
   var checkBox = document.getElementById("myCheck");
@@ -355,7 +502,7 @@
   }
 }
 	
-///////////// Item2	
+   // Item2	
 	function myFunction2() {
   // Get the checkbox
   var checkBox = document.getElementById("myCheck2");
@@ -370,14 +517,7 @@
 }
 
 
-
-
-
-
-
-
-
-
+////////////////// COUCHES DE DONNÉES //////////////////
 
 
 //BASSIN VERSANT
@@ -401,29 +541,11 @@
        }
        });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	    
-		
+//TERRES PUBLIQUES 1 - VECTORGRID	
 		map.createPane('labels');
         map.getPane('labels').style.zIndex = 650;
 
-		// TEST VECTORTILES
+
 		var highlight;
 		var clearHighlight = function() {
 			if (highlight) {
@@ -483,7 +605,7 @@
 		map.on('click', clearHighlight);
 		
 		
-		// TEST VECTORTILES 2
+//TERRES PUBLIQUES (RESTE) - VECTORGRID	
 		var highlight;
 		var clearHighlight = function() {
 			if (highlight) {
