@@ -3,6 +3,7 @@
 <head>
     <title>Demo lite - Laurent Savard</title>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -30,7 +31,7 @@
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
 	<script src="data/PubliqueJS.js"></script>
-	<script src="data/RESTE_LANO_LAUR_JS.js"></script>
+	<!--<script src="data/RESTE_LANO_LAUR_JS.js"></script>-->
 	
 	
 <style>	
@@ -170,7 +171,8 @@
 		
 		//TEST WMS PENTE MFFP
 		var wmsLayerPente = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
-        layers: 'lidar_pentes'
+        layers: 'lidar_pentes',
+		opacity: 0.4
         })
 		
 		// MAPBOX BASEMAPS
