@@ -95,6 +95,25 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	box-shadow: 0 0 6px #333;
 }
 
+
+.TopoDot {
+	 display:none;
+}
+
+.TopoDotF {
+	position: absolute;
+    left: 35px;
+    top: 135px;
+    height: 10px;
+    width: 10px;
+    background-color: #42b310;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: inline-block;
+}
+
+
+
 .Loupeclass {
 	background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     position: absolute;

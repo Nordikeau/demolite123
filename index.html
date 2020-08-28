@@ -30,8 +30,8 @@
 	<!-- VectorGrid -->
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"></script>
 	<script src="https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.js"></script>
-	<script src="data/PubliqueJS.js"></script>
-	<!--<script src="data/RESTE_LANO_LAUR_JS.js"></script>-->
+	<script src="data/LANO_LAUJS.js"></script>
+	<script src="data/RESTE_LANO_LAUR_lightJS.js"></script>
 	
 	
 <style>	
@@ -122,6 +122,7 @@
 	<!--Icone du Basemap  -->
 <span id="Basemap" class = "Basemapclass"></span>
 <span id="Topo" class = "Topoclass"></span>
+<span id = "TopoAdd" class="TopoDot"></span>
 <span id="Loupe" class = "Loupeclass"></span>
 
 </div>
@@ -166,13 +167,15 @@
 		
 		//TEST WMS RELIEF MFFP
 		var wmsLayer1 = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
-        layers: 'lidar_ombre'
+        layers: 'lidar_ombre',
+		pane: 'labels'
         })
 		
 		//TEST WMS PENTE MFFP
 		var wmsLayerPente = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_pentes',
-		opacity: 0.4
+		opacity: 0.4,
+		pane: 'labels'
         })
 		
 		// MAPBOX BASEMAPS
@@ -268,13 +271,11 @@
 		esribasemap.addTo(map);
 		map.removeLayer(CartoDB_Positron);
 		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
 		map.removeLayer(MP);
 		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
 		document.getElementById("Basemap6").className = "SelectBasemap";
@@ -288,13 +289,11 @@
 		wmsLayer5.addTo(map);
 		map.removeLayer(CartoDB_Positron);
 		map.removeLayer(esribasemap);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
 		map.removeLayer(MP);
 		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
 		document.getElementById("Basemap6").className = "SelectBasemap";
@@ -310,12 +309,10 @@
 		map.removeLayer(CartoDB_Positron);
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(MP);
 		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
 		document.getElementById("Basemap6").className = "SelectBasemap";
@@ -329,14 +326,12 @@
 		CartoDB_Positron.addTo(map);
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
 		map.removeLayer(MP);
 		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap6").className = "SelectBasemap";
 		document.getElementById("Basemap7").className = "SelectBasemap";
@@ -349,14 +344,12 @@
 		MP.addTo(map);
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
 		map.removeLayer(CartoDB_Positron);
 		map.removeLayer(MPO);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
 		document.getElementById("Basemap7").className = "SelectBasemap";
@@ -369,13 +362,11 @@
 		MPO.addTo(map);
 		map.removeLayer(esribasemap);
 		map.removeLayer(wmsLayer5);
-		map.removeLayer(wmsLayer1);
 		map.removeLayer(wmsLayer11);
 		map.removeLayer(CartoDB_Positron);
 			//Enlever la classe de selection au autres basemap
 		document.getElementById("Basemap1").className = "SelectBasemap";
 		document.getElementById("Basemap2").className = "SelectBasemap";
-		document.getElementById("Basemap3").className = "SelectBasemap";
 		document.getElementById("Basemap4").className = "SelectBasemap";
 		document.getElementById("Basemap5").className = "SelectBasemap";
 		document.getElementById("Basemap6").className = "SelectBasemap";
@@ -405,10 +396,12 @@
 		if (map.hasLayer(wmsLayer1)) {
 		map.removeLayer(wmsLayer1);
 		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("TopoAdd").className = "TopoDot";
             }
 			else{
         document.getElementById("Basemap3").className = "SelectBasemapF";
 		wmsLayer1.addTo(map);
+		document.getElementById("TopoAdd").className = "TopoDotF";
 				//Enlever la classe de selection au autres basemap
         map.removeLayer(wmsLayerPente);
 		document.getElementById("Basemap3a").className = "SelectBasemap";}
@@ -420,10 +413,12 @@
 		if (map.hasLayer(wmsLayerPente)) {
 		map.removeLayer(wmsLayerPente);
 		document.getElementById("Basemap3a").className = "SelectBasemap";
+		document.getElementById("TopoAdd").className = "TopoDot";
             }
 			else{
         document.getElementById("Basemap3a").className = "SelectBasemapF";
 		wmsLayerPente.addTo(map);
+		document.getElementById("TopoAdd").className = "TopoDotF";
 			//Enlever la classe de selection au autres basemap
         map.removeLayer(wmsLayer1);
 		document.getElementById("Basemap3").className = "SelectBasemap";}
