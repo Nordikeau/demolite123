@@ -33,6 +33,8 @@
 	<script src="data/LANO_LAUJS.js"></script>
 	<script src="data/RESTE_LANO_LAUR_lightJS.js"></script>
 	
+
+	
 	
 <style>	
 
@@ -132,9 +134,10 @@
 
     <script>
 	
-        var map = L.map('map',{ zoomControl: false }).setView([47.416115, -73.770760],6);
+        var map = L.map('map',{ zoomControl: false }).setView([47.416115, -73.770760],7);
 		
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
+		
 		
 		//ERSI SEARCH BAR
         var searchControl = new L.esri.Controls.Geosearch({ position: 'topright' }).addTo(map);
