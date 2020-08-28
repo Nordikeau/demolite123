@@ -94,7 +94,8 @@
 <div  id = "Coordonnees"class = "CoordonneesClassD">
     <b id = "CloseCoor" >Fermer</b>
 	<br />
-    <b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Cliquer sur la carte</b>
+    <b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Déplacer le curseur</b>
+	<b id = "Recentrer" >Centrer le curseur</b>
 	<br />
 	<br />
 	<div style="text-align:left; font-size: 12px; color:grey; "id = "lat1" class = "box"></div>
@@ -150,7 +151,13 @@
        }
         });
 
-	////////////////// BASEMAPS //////////////////		
+	////////////////// BASEMAPS //////////////////	
+        //Map Panes
+        map.createPane('WmsPanes');
+        map.getPane('WmsPanes').style.zIndex = 600;
+		map.createPane('labels');
+        map.getPane('labels').style.zIndex = 650;
+	
 		var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	    subdomains: 'abcd',
@@ -162,47 +169,39 @@
 		maxZoom: 20
 	    });
 		
-		//TEST WMS ORTHO MFFP
 		var wmsLayer5 = L.tileLayer.wms('https://servicesmatriciels.mern.gouv.qc.ca/erdas-iws/ogc/wms/Inventaire_Ecoforestier?', {
         layers: 'Inventaire_Ecoforestier',
 		maxZoom: 20
         })
 		
-		map.createPane('WmsPanes');
-        map.getPane('WmsPanes').style.zIndex = 600;
-		
-		//TEST WMS RELIEF MFFP
 		var wmsLayer1 = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_ombre',
 		pane: 'WmsPanes'
         })
 		
-		//TEST WMS PENTE MFFP
 		var wmsLayerPente = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_pentes',
 		opacity: 0.4,
 		pane: 'WmsPanes'
         })
 		
-		// MAPBOX BASEMAPS
-		
 		var MP =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
-    }).addTo(map);
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+        }).addTo(map);
 	
-	var MPO =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/outdoors-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
-    });
+		var MPO =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'mapbox/outdoors-v11',
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+		});
 		
 		//Basemap Gouv.Qc
 		var wmsLayer11 = L.tileLayer(
@@ -469,6 +468,7 @@
 		
 		////Selection de l'affichage des coordonnées
 	    function openCoor() {
+		AfficherMarker();
 		document.getElementById("Recherche4").className = "SelectRechercheF";
         document.getElementById("Coordonnees").className = "CoordonneesClassF";
 			//Remmetre par défaut recherche1
@@ -477,18 +477,98 @@
 		document.getElementById("Recherche4").addEventListener("click", openCoor);
 		
 		function closeCoor() {
+		EnleverMarker();
         document.getElementById("Coordonnees").className = "CoordonneesClassD";
 		document.getElementById("Recherche4").className = "SelectRecherche";
         };
 		document.getElementById("CloseCoor").addEventListener("click", closeCoor);
 		
-		var lat = 46.456433;
-		var lon = 69.456433;
-			//Remmetre par défaut recherche1
+		// Affichage des coordonnées dans la fenêtre
+        var PositionMarker = L.featureGroup();			
+        var marker;	
+        var lat;
+        var lon;
+		
+        function AfficherMarker() {
+		if (map.hasLayer(PositionMarker)) {
+        PositionMarker.clearLayers();
+		map.removeLayer(PositionMarker);
+            }
+		var marker = new L.marker(map.getCenter(), {
+        draggable: 'true'
+        });
+		PositionMarker.addLayer(marker);
+		PositionMarker.addTo(map);
+		var position = marker.getLatLng();
+		// quand l'utilisateur déplace l'icon
+		marker.on('dragend', function(event) {
+        var position = marker.getLatLng();
+		var lat = position.lat;
+		var lon = position.lng;
 		$('#lat1').html("<b  style='text-align:left; color: grey;font-weight: 100;  font-size : 12px'>Latitude : </b>"+lat.toFixed(6));
 		$('#lon1').html("<b  style='text-align:left;color: grey;font-weight: 100;  font-size : 12px'>Longitude : </b>"+lon.toFixed(6));
+		});
+		}
 		
-		
+        function EnleverMarker() {
+		if (map.hasLayer(PositionMarker)) {
+        PositionMarker.clearLayers();
+		map.removeLayer(PositionMarker);
+            }
+        };
+
+        // Recentrer le marker
+		document.getElementById("Recentrer").addEventListener("click", Center);
+        function Center() {
+		EnleverMarker();
+        AfficherMarker();
+        $('#lat1').html("<b  style='text-align:left; color: grey;font-weight: 100;  font-size : 12px'></b>");
+		$('#lon1').html("<b  style='text-align:left;color: grey;font-weight: 100;  font-size : 12px'></b>");
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	////////////////// CHECKBOX //////////////////	
 		
 	// Item1	
@@ -545,8 +625,7 @@
        });
 
 //TERRES PUBLIQUES 1 - VECTORGRID	
-		map.createPane('labels');
-        map.getPane('labels').style.zIndex = 650;
+
 
 
 		var highlight;
