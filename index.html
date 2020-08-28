@@ -165,17 +165,20 @@
 		maxZoom: 20
         })
 		
+		map.createPane('WmsPanes');
+        map.getPane('WmsPanes').style.zIndex = 600;
+		
 		//TEST WMS RELIEF MFFP
 		var wmsLayer1 = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_ombre',
-		pane: 'labels'
+		pane: 'WmsPanes'
         })
 		
 		//TEST WMS PENTE MFFP
 		var wmsLayerPente = L.tileLayer.wms('https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?', {
         layers: 'lidar_pentes',
 		opacity: 0.4,
-		pane: 'labels'
+		pane: 'WmsPanes'
         })
 		
 		// MAPBOX BASEMAPS
