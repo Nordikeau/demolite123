@@ -92,9 +92,9 @@
 	
 <!--Fenêtre Afficher les coordonnées  --> 
 <div  id = "Coordonnees"class = "CoordonneesClassD">
-    <b id = "CloseCoor" >Fermer</b>
-	<br />
+    
     <b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Déplacer le curseur</b>
+	<p id = "CloseCoor" >Fermer</p>
 	<b id = "Recentrer" >Centrer le curseur</b>
 	<br />
 	<br />
@@ -122,13 +122,17 @@
 	 <input type="checkbox" id="myCheck2" onclick="myFunction2()">
   <span class="slider round"></span>
 </label>
+</div>
+
 	<!--Icone du Basemap  -->
-<span id="Basemap" class = "Basemapclass"></span>
+<div style="position: absolute; z-index: 1000; margin: 10px; ">
+<span id="List" class = "Listclass"></span> 
+<span id="Basemap" class = "Basemapclass"></span> 
 <span id="Topo" class = "Topoclass"></span>
 <span id = "TopoAdd" class="TopoDot"></span>
 <span id="Loupe" class = "Loupeclass"></span>
-
 </div>
+
 
 <div id = "map"></div>
 
@@ -157,11 +161,13 @@
         map.getPane('WmsPanes').style.zIndex = 600;
 		map.createPane('labels');
         map.getPane('labels').style.zIndex = 650;
+		map.createPane('Point');
+        map.getPane('Point').style.zIndex = 700;
 	
 		var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 	    subdomains: 'abcd',
-	    maxZoom: 19
+	    maxZoom: 20
         });
 		
 		var esribasemap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -191,7 +197,8 @@
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+        accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ',
+		maxZoom: 20
         }).addTo(map);
 	
 		var MPO =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -200,7 +207,8 @@
 		id: 'mapbox/outdoors-v11',
 		tileSize: 512,
 		zoomOffset: -1,
-		accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ'
+		accessToken: 'pk.eyJ1IjoibGF1cmVudHNtYXBib3giLCJhIjoiY2tlY3IxbWVhMDJsOTJwbXEyNXM5M3g3aiJ9.ftdLIT50N3dykY-6KFJsgQ',
+		maxZoom: 20
 		});
 		
 		//Basemap Gouv.Qc
@@ -216,7 +224,7 @@
         "&TILECOL={x}",
 	{
 		minZoom : 0,
-		maxZoom : 18,
+		maxZoom : 20,
         attribution : "MFFP",
 		tileSize : 256 ,
 		opacity : 5
@@ -251,23 +259,43 @@
         };
 		document.getElementById("logo2").addEventListener("mouseout", bb2);
 		
+		////////////////// FENÊTRE DE LA LISTE DES COUCHES //////////////////
+		
+		//Fenêtre de la liste des couches
+	    function openCouche() {
+        document.getElementById("fenetre1").className = "fenetre1classF";
+		document.getElementById("List").className = "ListclassF";
+		closeloupe(); //Fermer la loupe
+		closetopo(); 
+		close() ;//Fermer la fenetre de topo
+        };
+		document.getElementById("List").addEventListener("mouseover", openCouche);
+		
+		function closeCouche() {
+        document.getElementById("fenetre1").className = "fenetre1class";
+		document.getElementById("List").className = "Listclass";
+        };
+		document.getElementById("fenetre1").addEventListener("mouseleave", closeCouche);
 		
 		////////////////// FENÊTRE DES BASEMAP //////////////////
-		
+
 		//Fenêtre de la liste des Basemap
 	    function open() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseF";
 		document.getElementById("Basemap").className = "BasemapclassF";
 		closeloupe(); //Fermer la loupe
 		closetopo(); //Fermer la fenetre de topo
+		closeCouche();
         };
 		document.getElementById("Basemap").addEventListener("mouseover", open);
+		
 		
 		function close() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseD";
 		document.getElementById("Basemap").className = "Basemapclass";
         };
 		document.getElementById("InfoBasemap").addEventListener("mouseleave", close);
+		document.getElementById("Basemap").addEventListener("click", close);
 
 		
 		//Selection - Basemap1
@@ -387,6 +415,7 @@
 		document.getElementById("Topo").className = "TopoclassF";
 		closeloupe(); //Fermer la loupe
 		close(); //Fermer la fenetre du basemap
+		closeCouche();
         };
 		document.getElementById("Topo").addEventListener("mouseover", opentopo);
 		
@@ -442,6 +471,7 @@
 		document.getElementById("Loupe").className = "LoupeclassF";
 		close(); //Fermer la fenetre du basemap
 		closetopo(); //Fermer la fenetre de topo
+		closeCouche();
         };
 		document.getElementById("Loupe").addEventListener("mouseover", openloupe);
 		
@@ -468,6 +498,8 @@
 		
 		////Selection de l'affichage des coordonnées
 	    function openCoor() {
+		 $('#lat1').html("<b  style='text-align:left; color: grey;font-weight: 100;  font-size : 12px'></b>");
+		$('#lon1').html("<b  style='text-align:left;color: grey;font-weight: 100;  font-size : 12px'></b>");
 		AfficherMarker();
 		document.getElementById("Recherche4").className = "SelectRechercheF";
         document.getElementById("Coordonnees").className = "CoordonneesClassF";
@@ -495,13 +527,14 @@
 		map.removeLayer(PositionMarker);
             }
 		var marker = new L.marker(map.getCenter(), {
-        draggable: 'true'
+        draggable: 'true',
+		pane: 'Point'
         });
 		PositionMarker.addLayer(marker);
 		PositionMarker.addTo(map);
 		var position = marker.getLatLng();
 		// quand l'utilisateur déplace l'icon
-		marker.on('dragend', function(event) {
+		marker.on('drag', function(event) {
         var position = marker.getLatLng();
 		var lat = position.lat;
 		var lon = position.lng;
