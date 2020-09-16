@@ -45,6 +45,8 @@
 
 <body>
 
+
+
 <!--Fenêtre d'infobulle item 1  --> 
 <div  id = "Info1"class = "Info1ClasseD">
 	<p style="text-align:center; font-size: 12px; color:grey; ">MERN 2020. (Sud du Québec)</p>
@@ -127,6 +129,7 @@
 	<!--Icone du Basemap  -->
 <div style="position: absolute; z-index: 1000; margin: 10px; ">
 <span id="List" class = "Listclass"></span> 
+<span id = "ListAdd" class="ListDot"></span>
 <span id="Basemap" class = "Basemapclass"></span> 
 <span id="Topo" class = "Topoclass"></span>
 <span id = "TopoAdd" class="TopoDot"></span>
@@ -266,7 +269,7 @@
         document.getElementById("fenetre1").className = "fenetre1classF";
 		document.getElementById("List").className = "ListclassF";
 		closeloupe(); //Fermer la loupe
-		closetopo(); 
+		closetopo(); //Fermer la topo
 		close() ;//Fermer la fenetre de topo
         };
 		document.getElementById("List").addEventListener("mouseover", openCouche);
@@ -610,9 +613,11 @@
   // If the checkbox is checked, display the output text
   if (checkBox.checked == true){
     TerrePublique.addTo(map);
+	document.getElementById("ListAdd").className = "ListDotF";
 	//document.getElementById("item1").className = "item1fin";	
   } else {
     map.removeLayer(TerrePublique);
+	document.getElementById("ListAdd").className = "ListDot";
 	//document.getElementById("item1").className = "item1debut";
   }
 }
@@ -624,9 +629,11 @@
   // If the checkbox is checked, display the output text
   if (checkBox.checked == true){
    bv1.addTo(map);
+   document.getElementById("ListAdd").className = "ListDotF";
 	//document.getElementById("item2").className = "item2fin";	
   } else {
     map.removeLayer(bv1);
+	document.getElementById("ListAdd").className = "ListDot";
 	//document.getElementById("item2").className = "item2debut";
   }
 }
