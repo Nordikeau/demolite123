@@ -532,7 +532,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .switch {
   position: relative;
   display: inline-block;
-  width: 33px;
+  width: 30px;
   height: 17px;
   left : 2%;
 }
@@ -568,7 +568,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 }
 
 input:checked + .slider {
-  background-color: #0078a8;
+  background-color: #a797d0;
 }
 
 input:focus + .slider {
@@ -578,7 +578,7 @@ input:focus + .slider {
 input:checked + .slider:before {
   -webkit-transform: translateX(13px);
   -ms-transform: translateX(13px);
-  transform: translateX(13px);
+  transform: translateX(10px);
 }
 
 /* Rounded sliders */
