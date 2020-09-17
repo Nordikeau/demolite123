@@ -216,6 +216,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	color:#666;
 	font-weight:bold; 
 	padding: 2px;
+	margin-left: 7px;
 }
 
 
@@ -226,6 +227,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	color:#666;
 	font-weight:bold; 
 	padding: 2px;
+	margin-left: 7px;
 }
 
 
@@ -530,8 +532,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .switch {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 19px;
+  width: 33px;
+  height: 17px;
   left : 2%;
 }
 
@@ -550,23 +552,23 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: .4s;
-  transition: .4s;
+  transition: .1s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 13px;
+  width: 13px;
   left: 4px;
-  bottom: 1px;
+  bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
-  transition: .4s;
+  transition: .1s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #0078a8;
 }
 
 input:focus + .slider {
@@ -574,9 +576,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(18px);
-  -ms-transform: translateX(18px);
-  transform: translateX(18px);
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
 }
 
 /* Rounded sliders */
