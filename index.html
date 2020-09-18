@@ -280,8 +280,8 @@
         document.getElementById("fenetre1").className = "fenetre1class";
 		document.getElementById("List").className = "Listclass";
         };
-		document.getElementById("fenetre1").addEventListener("mouseleave", closeCouche);
-		
+		//document.getElementById("fenetre1").addEventListener("mouseleave", closeCouche);
+		document.getElementById("map").addEventListener("click", closeCouche);
 		////////////////// FENÊTRE DES BASEMAP //////////////////
 
 		//Fenêtre de la liste des Basemap
@@ -299,7 +299,7 @@
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseD";
 		document.getElementById("Basemap").className = "Basemapclass";
         };
-		document.getElementById("InfoBasemap").addEventListener("mouseleave", close);
+		document.getElementById("map").addEventListener("click", close);
 
 		
 		//Selection - Basemap1
@@ -427,7 +427,7 @@
         document.getElementById("InfoTopo").className = "InfoTopoClasseD";
 		document.getElementById("Topo").className = "Topoclass";
         };
-		document.getElementById("InfoTopo").addEventListener("mouseleave", closetopo);
+		document.getElementById("map").addEventListener("click", closetopo);
 		
 		//Selection - Basemap3
 	    function B3() {
@@ -483,7 +483,7 @@
         document.getElementById("Loupe").className = "Loupeclass";
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseD";
         };
-		document.getElementById("InfoRecherche").addEventListener("mouseleave", closeloupe);
+		document.getElementById("map").addEventListener("click", closeloupe);
 		
 		////Selection de la description de la carte
 	    function openDesc() {
