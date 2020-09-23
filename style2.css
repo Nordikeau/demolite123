@@ -1,12 +1,24 @@
- body {
+  body {
    margin: 0px;
    border: 0px;
+   padding: 0px;
    font-family: sans-serif;
+   color: #333;
 }
 
-html, body, #map {
-    height: 100%;
-    width: 100vw;
+#map {
+  width: 100%;
+ height: 96%;
+  position : absolute;
+  bottom: 0;
+}
+
+.BarreHaut {
+  position: absolute;
+    width: 100%;
+    z-index: 1000;
+    background: grey;
+    height: 4%;
 }
 
 .logoclass {
@@ -41,7 +53,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 5px;
+    top: 40px;
     background-color: white;
     cursor: pointer;
     border: 7px solid white;
@@ -55,7 +67,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 5px;
+    top: 40px;
     background-color: #afeeee;
     cursor: pointer;
     border: 7px solid #afeeee;
@@ -68,7 +80,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 55px;
+    top: 90px;
     background-color: white;
     cursor: pointer;
     border: 7px solid white;
@@ -82,7 +94,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 55px;
+    top: 90px;
     background-color: #afeeee;
     cursor: pointer;
     border: 7px solid #afeeee;
@@ -96,7 +108,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 105px;
+    top: 140px;
     background-color: white;
     cursor: pointer;
     border: 6px solid white;
@@ -111,7 +123,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 105px;
+    top: 140px;
     background-color: #afeeee;
     cursor: pointer;
     border: 6px solid #afeeee;
@@ -128,7 +140,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .TopoDotF {
 	position: absolute;
     left: 31px;
-    top: 100px;
+    top: 135px;
     height: 10px;
     width: 10px;
     background-color: #42b310;
@@ -144,7 +156,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .ListDotF {
 	position: absolute;
     left: 31px;
-    top: 0px;
+    top: 35px;
     height: 10px;
     width: 10px;
     background-color: #42b310;
@@ -161,7 +173,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 20px;
     width: 20px;
-    top: 155px;
+    top: 190px;
     background-color: white;
     cursor: pointer;
     border: 5px solid white;
@@ -176,7 +188,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 20px;
     width: 20px;
-    top: 155px;
+    top: 190px;
     background-color: #afeeee;
     cursor: pointer;
     border: 5px solid #afeeee;
@@ -202,7 +214,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 50px;
     width: 180px;
     left: 50px;
-	top:5px;
+	top:40px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -248,7 +260,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 10px;
     width: 70px;
     left: 258px;
-	top: 11px;
+	top: 46px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -270,7 +282,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 10px;
     width: 70px;
     left: 258px;
-    top: 48px;
+    top: 83px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -388,7 +400,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 10px;
     width: 160px;
     left: 50px;
-    top: 57px;
+    top: 92px;
     border-radius: .5em;
     box-shadow: 0 0 6px #999;
 }
@@ -410,7 +422,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 10px;
     width: 160px;
     left: 50px;
-    top: 107px;
+    top: 142px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -419,8 +431,9 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .SelectBasemap {
 	text-align:left; 
 	font-size: 12px; 
-	color:grey;
+	color:#999;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;
 }
 .SelectBasemap:hover {
@@ -429,6 +442,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	background-color: #e9fbfb;
 	border-radius: .2em;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;
 }
 
@@ -439,6 +453,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	background-color: #AFEEEE;
 	border-radius: .2em;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;
 }
 
@@ -459,7 +474,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	text-align : center;
     width: 215px;
     left: 50px;
-    top: 157px;
+    top: 192px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -469,8 +484,9 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .SelectRecherche {
 	text-align:left; 
 	font-size: 12px; 
-	color:grey;
+	color:#999;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;	
 }
 .SelectRecherche:hover {
@@ -479,6 +495,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	border-radius: .2em;
 	background-color: #e9fbfb;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;
 }
 
@@ -489,6 +506,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	border-radius: .2em;
 	background-color: #AFEEEE;
 	padding: 2px;
+	margin-top:-3px;
 	cursor: pointer;
 }
 
