@@ -19,6 +19,7 @@
     z-index: 1000;
     background: grey;
     height: 40px;
+	    box-shadow: 0 0 6px #999;
 }
 
 .logoclass {
@@ -53,12 +54,11 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 40px;
+    top: -7px;
     background-color: white;
     cursor: pointer;
-    border: 7px solid white;
+    border: 5px solid white;
     border-radius: 0.3em;
-	box-shadow: 0 0 6px #333;
 }
 
 .ListclassF {
@@ -67,69 +67,64 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     left: 0px;
     height: 25px;
     width: 25px;
-    top: 40px;
+    top: -7px;
     background-color: #afeeee;
     cursor: pointer;
-    border: 7px solid #afeeee;
+    border: 5px solid #afeeee;
     border-radius: 0.3em;
-	box-shadow: 0 0 6px #333;
 }
 .Basemapclass {
 	background-image: url(icone/menu2.svg);
     position: absolute;
-    left: 0px;
     height: 25px;
     width: 25px;
-    top: 90px;
+	left : 45px;
+    top: -7px;
     background-color: white;
     cursor: pointer;
-    border: 7px solid white;
+    border: 5px solid white;
     border-radius: 0.3em;
-	box-shadow: 0 0 6px #333;
 }
 
 .BasemapclassF {
 	background-image: url(icone/menu2.svg);
     position: absolute;
-    left: 0px;
+    left: 45px;
     height: 25px;
     width: 25px;
-    top: 90px;
+    top: -7px;
     background-color: #afeeee;
     cursor: pointer;
-    border: 7px solid #afeeee;
+    border: 5px solid #afeeee;
     border-radius: 0.3em;
-	box-shadow: 0 0 6px #333;
 }
 
 .Topoclass {
 	background-image: url(icone/topography.svg);
     position: absolute;
-    left: 0px;
+    left: 90px;
     height: 25px;
     width: 25px;
-    top: 140px;
+    top: -7px;
     background-color: white;
     cursor: pointer;
-    border: 6px solid white;
+    border: 4px solid white;
     border-radius: 0.3em;
 	padding : 1px;
-	box-shadow: 0 0 6px #333;
 }
 
 .TopoclassF {
 	background-image: url(icone/topography.svg);
     position: absolute;
-    left: 0px;
+     left: 90px;
     height: 25px;
     width: 25px;
-    top: 140px;
+    top: -7px;
     background-color: #afeeee;
     cursor: pointer;
-    border: 6px solid #afeeee;
+    border: 4px solid #afeeee;
     border-radius: 0.3em;
 	padding : 1px;
-	box-shadow: 0 0 6px #333;
 }
 
 
@@ -139,8 +134,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 
 .TopoDotF {
 	position: absolute;
-    left: 31px;
-    top: 135px;
+     left: 117px;
+    top: -9px;
     height: 10px;
     width: 10px;
     background-color: #42b310;
@@ -155,8 +150,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 
 .ListDotF {
 	position: absolute;
-    left: 31px;
-    top: 35px;
+    left: 27px;
+    top: -9px;
     height: 10px;
     width: 10px;
     background-color: #42b310;
@@ -170,31 +165,29 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .Loupeclass {
 	background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     position: absolute;
-    left: 0px;
+    left: 135px;
     height: 20px;
     width: 20px;
-    top: 190px;
+    top: -7px;
     background-color: white;
     cursor: pointer;
-    border: 5px solid white;
+    border: 4px solid white;
 	padding : 4px;
     border-radius: 0.3em;
-	box-shadow: 0 0 5px #333;
 }
 
 .LoupeclassF {
 	background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     position: absolute;
-    left: 0px;
+    left: 135px;
     height: 20px;
     width: 20px;
-    top: 190px;
+    top: -7px;
     background-color: #afeeee;
     cursor: pointer;
-    border: 5px solid #afeeee;
+    border: 4px solid #afeeee;
     border-radius: 0.3em;
 	padding : 4px;
-	box-shadow: 0 0 5px #333;
 }
 
 
@@ -213,7 +206,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 50px;
     width: 180px;
-    left: 50px;
+    left: 0px;
 	top:40px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
@@ -259,7 +252,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 258px;
+    left: 210px;
 	top: 46px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
@@ -281,7 +274,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 258px;
+    left: 210px;
     top: 83px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
@@ -399,8 +392,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 160px;
-    left: 50px;
-    top: 92px;
+    left: 0px;
+    top: 40px;
     border-radius: .5em;
     box-shadow: 0 0 6px #999;
 }
@@ -421,8 +414,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 160px;
-    left: 50px;
-    top: 142px;
+    left: 0px;
+    top: 40px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
@@ -473,8 +466,8 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     min-height: 10px;
 	text-align : center;
     width: 215px;
-    left: 50px;
-    top: 192px;
+    left: 0px;
+    top: 40px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
 }
