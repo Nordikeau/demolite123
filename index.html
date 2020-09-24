@@ -33,7 +33,10 @@
 	<script src="data/LANO_LAUJS.js"></script>
 	<script src="data/RESTE_LANO_LAUR_lightJS.js"></script>
 	
-
+	<!-- Geolocation -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 	
 	
 <style>	
@@ -41,7 +44,7 @@ body {
     font-family: Arial;
 }
 .leaflet-top {
-    top: 35px;
+    top: 30px;
 }
 </style>	
 	
@@ -97,7 +100,6 @@ body {
 <div  id = "DescriptionCarte"class = "DescriptionCarteClassD">
 <b id = "CloseDesc" >Fermer</b>
 	<b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Description</b>
-	<input type="button" value="Locate me!" onClick="javascript:getLocationLeaflet();">
 	</div>
 	
 <!--Fenêtre Afficher les coordonnées  --> 
@@ -157,7 +159,7 @@ body {
 		
 		
 		//ERSI SEARCH BAR
-        var searchControl = new L.esri.Controls.Geosearch({ position: 'topright' }).addTo(map);
+        var searchControl = new L.esri.Controls.Geosearch({ position: 'topright',initialZoomLevel: 1 }).addTo(map);
         var results = new L.LayerGroup().addTo(map);
 
         searchControl.on('results', function(data){
@@ -168,23 +170,7 @@ body {
         });
 		
 		//MY LOCATION
-		function onLocationFound(e) {
-         var radius = e.accuracy / 2;
-         var location = e.latlng
-         L.marker(location).addTo(map)
-         L.circle(location, radius).addTo(map);
-      }
-
-      function onLocationError(e) {
-         alert(e.message);
-      }
-
-      function getLocationLeaflet() {
-         map.on('locationfound', onLocationFound);
-         map.on('locationerror', onLocationError);
-
-         map.locate({setView: true, maxZoom: 16});
-      }
+		L.control.locate({ position: 'topright'}).addTo(map);
 
 	////////////////// BASEMAPS //////////////////	
         //Map Panes
