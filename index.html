@@ -97,6 +97,7 @@ body {
 <div  id = "DescriptionCarte"class = "DescriptionCarteClassD">
 <b id = "CloseDesc" >Fermer</b>
 	<b style="text-align:left; font-size: 13px;padding: 4px; color:grey; ">Description</b>
+	<input type="button" value="Locate me!" onClick="javascript:getLocationLeaflet();">
 	</div>
 	
 <!--Fenêtre Afficher les coordonnées  --> 
@@ -165,6 +166,25 @@ body {
         results.addLayer(L.marker(data.results[i].latlng));
        }
         });
+		
+		//MY LOCATION
+		function onLocationFound(e) {
+         var radius = e.accuracy / 2;
+         var location = e.latlng
+         L.marker(location).addTo(map)
+         L.circle(location, radius).addTo(map);
+      }
+
+      function onLocationError(e) {
+         alert(e.message);
+      }
+
+      function getLocationLeaflet() {
+         map.on('locationfound', onLocationFound);
+         map.on('locationerror', onLocationError);
+
+         map.locate({setView: true, maxZoom: 16});
+      }
 
 	////////////////// BASEMAPS //////////////////	
         //Map Panes
