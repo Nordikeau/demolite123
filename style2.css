@@ -23,8 +23,8 @@ html, body, #map {
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
     left: 89%;
-     height: 18px;
-	width: 18px;
+     height: 16px;
+	width: 16px;
 	top : 11px;
 	cursor: pointer;
 }
@@ -36,9 +36,9 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
     left: 89%;
-     height: 18px;
-	width: 18px;
-	top : 46px;
+     height: 16px;
+	width: 16px;
+	top : 48px;
 	cursor: pointer;
 }
 .logo2class:hover {
@@ -252,7 +252,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     border-style: dashed solid;
     border-color: red;
     left: 74%;
-    top: 48px;
+    top: 49px;
     position: absolute;	
 		
     }
