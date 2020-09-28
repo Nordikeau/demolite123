@@ -22,7 +22,7 @@ html, body, #map {
 .logoclass {
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
-    left: 80%;
+    left: 89%;
      height: 18px;
 	width: 18px;
 	top : 11px;
@@ -35,7 +35,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 .logo2class {
 	background-image: url(icone/question-mark-inside-a-circle.svg);
 	position: absolute;
-    left: 80%;
+    left: 89%;
      height: 18px;
 	width: 18px;
 	top : 46px;
@@ -210,7 +210,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     right: 0;
     margin: 10px;
     min-height: 50px;
-    width: 180px;
+    width: 190px;
     left: 0px;
 	top:73px;
     border-radius: .4em;
@@ -228,6 +228,34 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	padding: 2px;
 	margin-left: 7px;
 }
+
+.rectangle1 {
+    width: 25px;
+    height: 15px;
+    background: #9898d2;
+    display: inline-block;
+
+    border-radius: 3px;
+    left: 74%;
+    top: 12px;
+    position: absolute;
+}
+
+	
+	.rectangle2 {
+	width: 23px;
+    height: 13px;
+    background: yellow;
+    display: inline-block;
+    border-radius: 3px;
+	 border: 1px;
+    border-style: dashed solid;
+    border-color: red;
+    left: 74%;
+    top: 48px;
+    position: absolute;	
+		
+    }
 
 
 
@@ -257,7 +285,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 210px;
+    left: 222px;
 	top: 86px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
@@ -279,7 +307,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     margin: 10px;
     min-height: 10px;
     width: 70px;
-    left: 210px;
+    left: 222px;
     top: 123px;
     border-radius: .4em;
     box-shadow: 0 0 6px #999;
@@ -584,7 +612,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 }
 
 input:checked + .slider {
-  background-color: #a797d0;
+  background-color: #70d244;
 }
 
 input:focus + .slider {

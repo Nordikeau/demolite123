@@ -125,6 +125,7 @@ body {
   <span class="slider round"></span>
 </label>
 <b id = "item1" class = "item1debut" >Terre publique</b>
+<div class="rectangle1"></div>
 	<br />
 	<br />
 	<!--Couche 2  -->	
@@ -135,6 +136,7 @@ body {
   <span class="slider round"></span>
 </label>
 <b id = "item2" class = "item2debut" >Bassin versant</b>
+<div class="rectangle2"></div>
 </div>
 
 	<!--Icone du Basemap  -->
@@ -157,6 +159,9 @@ body {
 		
 		new L.Control.Zoom({ position: 'topright' }).addTo(map);
 		
+		//MY LOCATION
+		L.control.locate({ position: 'topright'}).addTo(map);
+
 		
 		//ERSI SEARCH BAR
         var searchControl = new L.esri.Controls.Geosearch({ position: 'topright',initialZoomLevel: 1 }).addTo(map);
@@ -169,9 +174,7 @@ body {
        }
         });
 		
-		//MY LOCATION
-		L.control.locate({ position: 'topright'}).addTo(map);
-
+		
 	////////////////// BASEMAPS //////////////////	
         //Map Panes
         map.createPane('WmsPanes');
