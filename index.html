@@ -54,7 +54,7 @@ body {
 <body>
 
 <div class = "BarreHaut">
-<p style="font-size: 14px;color: white;margin-left: 13px;font-weight: bold;    line-height: 8px; ">DEMO - Laurent (2020-09-23)</p>
+<div id="drop_zone"><span style="font-size: 14px;color: white;margin-left: 13px;font-weight: bold;    line-height: 35px;">Drop </span><span style="font-size: 10px;color: white;margin-left: 10px;font-weight: bold;    line-height: 35px;">test.txt</span></div> 
 </div>
 
 <!--Fenêtre d'infobulle item 1  --> 
@@ -83,8 +83,8 @@ body {
 <!--Fenêtre de Topo  --> 
 <div  id = "InfoTopo"class = "InfoTopoClasseD">
     <p style="text-align:center;     border-radius: .2em; font-size: 13px; color:#333; background-color:#afeeee ;padding: 5px;margin-top: -3px;margin-right: -3px;margin-left: -3px; " >Topographie</p>
-	<p id = "Basemap3"class = "SelectBasemap">MFFP Relief ombre</p>
-	<p id = "Basemap3a"class = "SelectBasemap">MFFP Relief pente</p>
+	<p id = "Basemap3"class = "SelectRecherche">MFFP Relief ombre</p>
+	<p id = "Basemap3a"class = "SelectRecherche">MFFP Relief pente</p>
 	</div>
 	
 <!--Fenêtre d'informations  --> 
@@ -450,16 +450,16 @@ body {
 	    function B3() {
 		if (map.hasLayer(wmsLayer1)) {
 		map.removeLayer(wmsLayer1);
-		document.getElementById("Basemap3").className = "SelectBasemap";
+		document.getElementById("Basemap3").className = "SelectRecherche";
 		document.getElementById("TopoAdd").className = "TopoDot";
             }
 			else{
-        document.getElementById("Basemap3").className = "SelectBasemapF";
+        document.getElementById("Basemap3").className = "SelectRechercheF";
 		wmsLayer1.addTo(map);
 		document.getElementById("TopoAdd").className = "TopoDotF";
 				//Enlever la classe de selection au autres basemap
         map.removeLayer(wmsLayerPente);
-		document.getElementById("Basemap3a").className = "SelectBasemap";}
+		document.getElementById("Basemap3a").className = "SelectRecherche";}
         };
 		document.getElementById("Basemap3").addEventListener("click", B3);
 		
@@ -467,16 +467,16 @@ body {
 	    function B3aa() {
 		if (map.hasLayer(wmsLayerPente)) {
 		map.removeLayer(wmsLayerPente);
-		document.getElementById("Basemap3a").className = "SelectBasemap";
+		document.getElementById("Basemap3a").className = "SelectRecherche";
 		document.getElementById("TopoAdd").className = "TopoDot";
             }
 			else{
-        document.getElementById("Basemap3a").className = "SelectBasemapF";
+        document.getElementById("Basemap3a").className = "SelectRechercheF";
 		wmsLayerPente.addTo(map);
 		document.getElementById("TopoAdd").className = "TopoDotF";
 			//Enlever la classe de selection au autres basemap
         map.removeLayer(wmsLayer1);
-		document.getElementById("Basemap3").className = "SelectBasemap";}
+		document.getElementById("Basemap3").className = "SelectRecherche";}
         };
 		document.getElementById("Basemap3a").addEventListener("click", B3aa);
 		
