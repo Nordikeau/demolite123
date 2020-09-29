@@ -16,7 +16,7 @@ html, body, #map {
     z-index: 1000;
     background: grey;
     height: 35px;
-	    box-shadow: 0 0 6px #999;
+	box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
 }
 
 .logoclass {
@@ -222,7 +222,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 
 .item1debut {
 	text-align:left; 
-	font-size: 13px;
+	font-size: 12px;
 	color:#666;
 	font-weight:bold; 
 	padding: 2px;
@@ -261,7 +261,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 
 .item2debut {
 	text-align:left; 
-	font-size: 13px;
+	font-size: 12px;
 	color:#666;
 	font-weight:bold; 
 	padding: 2px;
