@@ -55,7 +55,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: white;
     cursor: pointer;
     border: 6px solid white;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	box-shadow: 0 0 6px #333;
 }
 
@@ -69,7 +69,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: #afeeee;
     cursor: pointer;
     border: 6px solid #afeeee;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	box-shadow: 0 0 6px #333;
 }
 .Basemapclass {
@@ -82,7 +82,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: white;
     cursor: pointer;
     border: 6px solid white;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	box-shadow: 0 0 6px #333;
 }
 
@@ -96,7 +96,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: #afeeee;
     cursor: pointer;
     border: 6px solid #afeeee;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	box-shadow: 0 0 6px #333;
 }
 
@@ -110,7 +110,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: white;
     cursor: pointer;
     border: 5px solid white;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	padding : 1px;
 	box-shadow: 0 0 6px #333;
 }
@@ -125,7 +125,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: #afeeee;
     cursor: pointer;
     border: 5px solid #afeeee;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	padding : 1px;
 	box-shadow: 0 0 6px #333;
 }
@@ -176,7 +176,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     cursor: pointer;
     border: 5px solid white;
 	padding : 4px;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	box-shadow: 0 0 6px #333;
 }
 
@@ -190,7 +190,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     background-color: #afeeee;
     cursor: pointer;
     border: 5px solid #afeeee;
-    border-radius: 0.3em;
+    border-radius: 0.2em;
 	padding : 4px;
 	box-shadow: 0 0 6px #333;
 }
@@ -461,6 +461,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	padding: 2px;
 	margin-top:-3px;
 	cursor: pointer;
+	margin-left: 8px;
 }
 .SelectBasemap:hover {
     text-align:left; 
@@ -470,6 +471,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	padding: 2px;
 	margin-top:-3px;
 	cursor: pointer;
+	margin-left: 8px;
 }
 
 .SelectBasemapF {
@@ -481,6 +483,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	margin-top:-3px;
 	cursor: pointer;
 	border-bottom: 2px solid #70d244;
+	margin-left: 8px;
 }
 
 /*    fenêtre d'information ?    */
