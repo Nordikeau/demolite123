@@ -54,7 +54,8 @@ body {
 <body>
 
 <div class = "BarreHaut">
-<div id="drop_zone"><span style="font-size: 14px;color: white;margin-left: 13px;font-weight: bold;    line-height: 35px;">Demo - Laurent </span><span style="font-size: 10px;color: white;margin-left: 10px;font-weight: bold;    line-height: 35px;">2020-09-29</span></div> 
+<div ><span class = "logoHead"></span></div> 
+<div ><span style="font-size: 14px;color: white;margin-left: 50px;font-weight: bold;    line-height: 35px;">Demo - Laurent </span><span style="font-size: 10px;color: white;margin-left: 10px;font-weight: bold;    line-height: 35px;">2020-09-29</span></div> 
 </div>
 
 <!--Fenêtre d'infobulle item 1  --> 
@@ -141,10 +142,10 @@ body {
 <div class="rectangle2"></div>
 </div>
 
-<div class = "BarreIcone"></div>
-<div class = "BarreIcone1"></div>
-<div class = "BarreIcone2"></div>
-<div class = "BarreIcone3"></div>
+<div id="B" class = "BarreIcone"></div>
+<div id="B1" class = "BarreIcone1"></div>
+<div id="B2"  class = "BarreIcone2"></div>
+<div id="B3" class = "BarreIcone3"></div>
 	<!--Icones widjet  -->
 <div style="position: absolute; z-index: 1000; margin: 10px; ">
 <span id="List" class = "Listclass"></span> 
@@ -295,7 +296,7 @@ body {
 		closetopo(); //Fermer la topo
 		close() ;//Fermer la fenetre de topo
         };
-		document.getElementById("List").addEventListener("mouseover", openCouche);
+		document.getElementById("B").addEventListener("mouseover", openCouche);
 		
 		function closeCouche() {
         document.getElementById("fenetre1").className = "fenetre1class";
@@ -313,7 +314,7 @@ body {
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
-		document.getElementById("Basemap").addEventListener("mouseover", open);
+		document.getElementById("B1").addEventListener("mouseover", open);
 		
 		
 		function close() {
@@ -442,7 +443,7 @@ body {
 		close(); //Fermer la fenetre du basemap
 		closeCouche();
         };
-		document.getElementById("Topo").addEventListener("mouseover", opentopo);
+		document.getElementById("B2").addEventListener("mouseover", opentopo);
 		
 		function closetopo() {
         document.getElementById("InfoTopo").className = "InfoTopoClasseD";
@@ -498,7 +499,7 @@ body {
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
-		document.getElementById("Loupe").addEventListener("mouseover", openloupe);
+		document.getElementById("B3").addEventListener("mouseover", openloupe);
 		
 		function closeloupe() {
         document.getElementById("Loupe").className = "Loupeclass";
