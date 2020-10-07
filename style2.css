@@ -33,52 +33,52 @@ background-image: url(icone/location-pin.svg);
 position: absolute;
     width: 36px;
     z-index: 1000;
-    top: 40px;
-    left: 11px;
+    top: 30px;
+    left: 0px;
     background: #666;
     height: 36px;
     border-radius: 0.2em;
-	    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
-		cursor: pointer;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .BarreIcone1 {
 position: absolute;
     width: 36px;
     z-index: 1000;
-    top: 40px;
-   left: 56.5px;
+    top: 30px;
+    left: 45px;
     background: #666;
     height: 36px;
     border-radius: 0.2em;
-	    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
-		cursor: pointer;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .BarreIcone2 {
 position: absolute;
     width: 36px;
     z-index: 1000;
-    top: 40px;
-   left: 103px;
+    top: 30px;
+    left: 90px;
     background: #666;
     height: 36px;
     border-radius: 0.2em;
-	    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
-		cursor: pointer;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .BarreIcone3 {
 position: absolute;
     width: 36px;
     z-index: 1000;
-    top: 40px;
-   left: 148px;
+    top: 30px;
+    left: 135px;
     background: #666;
     height: 36px;
     border-radius: 0.2em;
-	    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
-		cursor: pointer;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .logoclass {
@@ -110,60 +110,55 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .Listclass {
 	background-image: url(icone/list.svg);
     position: absolute;
-    left: 9px;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
+    top: 7px;
 	
 }
 
 .ListclassF {
-		background-image: url(icone/list2.svg);
+	background-image: url(icone/list2.svg);
     position: absolute;
-    left: 9px;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 .Basemapclass {
 	background-image: url(icone/menu3.svg);
    position: absolute;
-    left: 54px;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 .BasemapclassF {
 	background-image: url(icone/menu2.svg);
    position: absolute;
-    left: 54px;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 .Topoclass {
 	background-image: url(icone/topography.svg);
-   position: absolute;
-    left: 100px;
+    position: absolute;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 .TopoclassF {
 	background-image: url(icone/topography2.svg);
-   position: absolute;
-    left: 100px;
+    position: absolute;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 
@@ -202,21 +197,19 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .Loupeclass {
 	background-image: url(icone/question-mark-inside-a-circle-hover.svg);
      position: absolute;
-    left: 145px;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 .LoupeclassF {
 	background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
-    position: absolute;
-    left: 145px;
+     position: absolute;
+    left: 7px;
     height: 22px;
     width: 22px;
-    top: 37px;
-    cursor: pointer;
+    top: 7px;
 }
 
 
