@@ -91,7 +91,7 @@ position: absolute;
 	cursor: pointer;
 }
 .logoclass:hover {
-background-image: url(icone/question-mark-inside-a-circle-hover.svg);
+background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 }
 
 .logo2class {
@@ -104,7 +104,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
 	cursor: pointer;
 }
 .logo2class:hover {
-background-image: url(icone/question-mark-inside-a-circle-hover.svg);
+background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 }
 
 .Listclass {
@@ -114,7 +114,6 @@ background-image: url(icone/question-mark-inside-a-circle-hover.svg);
     height: 22px;
     width: 22px;
     top: 37px;
-    cursor: pointer;
 	
 }
 

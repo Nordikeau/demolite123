@@ -296,7 +296,7 @@ body {
 		closetopo(); //Fermer la topo
 		close() ;//Fermer la fenetre de topo
         };
-		document.getElementById("B").addEventListener("mouseover", openCouche);
+		document.getElementById("List").addEventListener("mouseover", openCouche);
 		
 		function closeCouche() {
         document.getElementById("fenetre1").className = "fenetre1class";
@@ -314,7 +314,7 @@ body {
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
-		document.getElementById("B1").addEventListener("mouseover", open);
+		document.getElementById("Basemap").addEventListener("mouseover", open);
 		
 		
 		function close() {
@@ -443,7 +443,7 @@ body {
 		close(); //Fermer la fenetre du basemap
 		closeCouche();
         };
-		document.getElementById("B2").addEventListener("mouseover", opentopo);
+		document.getElementById("Topo").addEventListener("mouseover", opentopo);
 		
 		function closetopo() {
         document.getElementById("InfoTopo").className = "InfoTopoClasseD";
@@ -499,7 +499,7 @@ body {
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
-		document.getElementById("B3").addEventListener("mouseover", openloupe);
+		document.getElementById("Loupe").addEventListener("mouseover", openloupe);
 		
 		function closeloupe() {
         document.getElementById("Loupe").className = "Loupeclass";
