@@ -296,7 +296,7 @@ body {
 		//Fenêtre de la liste des couches
 	    function openCouche() {
         document.getElementById("fenetre1").className = "fenetre1classF";
-		document.getElementById("List").className = "ListclassF";
+		document.getElementById("B").className = "BarreIconeF";
 		closeloupe(); //Fermer la loupe
 		closetopo(); //Fermer la topo
 		close() ;//Fermer la fenetre de topo
@@ -305,7 +305,7 @@ body {
 		
 		function closeCouche() {
         document.getElementById("fenetre1").className = "fenetre1class";
-		document.getElementById("List").className = "Listclass";
+		document.getElementById("B").className = "BarreIcone";
         };
 		//document.getElementById("fenetre1").addEventListener("mouseleave", closeCouche);
 		document.getElementById("map").addEventListener("click", closeCouche);
@@ -314,7 +314,7 @@ body {
 		//Fenêtre de la liste des Basemap
 	    function open() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseF";
-		document.getElementById("Basemap").className = "BasemapclassF";
+		document.getElementById("B1").className = "BarreIcone1F";
 		closeloupe(); //Fermer la loupe
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
@@ -324,7 +324,7 @@ body {
 		
 		function close() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseD";
-		document.getElementById("Basemap").className = "Basemapclass";
+		document.getElementById("B1").className = "BarreIcone1";
         };
 		document.getElementById("map").addEventListener("click", close);
 
@@ -443,7 +443,7 @@ body {
 		//Fenêtre de la liste des topo
 	    function opentopo() {
         document.getElementById("InfoTopo").className = "InfoTopoClasseF";
-		document.getElementById("Topo").className = "TopoclassF";
+		document.getElementById("B2").className = "BarreIcone2F";
 		closeloupe(); //Fermer la loupe
 		close(); //Fermer la fenetre du basemap
 		closeCouche();
@@ -452,7 +452,7 @@ body {
 		
 		function closetopo() {
         document.getElementById("InfoTopo").className = "InfoTopoClasseD";
-		document.getElementById("Topo").className = "Topoclass";
+		document.getElementById("B2").className = "BarreIcone2";
         };
 		document.getElementById("map").addEventListener("click", closetopo);
 		
@@ -499,7 +499,7 @@ body {
 		////Fenêtre du point d'intérogation
 	    function openloupe() {
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseF";
-		document.getElementById("Loupe").className = "LoupeclassF";
+		document.getElementById("B3").className = "BarreIcone3F";
 		close(); //Fermer la fenetre du basemap
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
@@ -507,7 +507,7 @@ body {
 		document.getElementById("B3").addEventListener("mouseover", openloupe);
 		
 		function closeloupe() {
-        document.getElementById("Loupe").className = "Loupeclass";
+        document.getElementById("B3").className = "BarreIcone3";
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseD";
         };
 		document.getElementById("map").addEventListener("click", closeloupe);
