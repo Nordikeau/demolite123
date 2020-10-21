@@ -628,7 +628,7 @@ body {
 		map.removeLayer(featureGroupG);
             }
 		var marker = new L.marker(map.getCenter(), {
-        draggable: 'true',icon: pulsingIcon
+        draggable: 'true',icon: pulsingIcon,pane: 'Point'
         });
 		featureGroupG.addLayer(marker);
 		featureGroupG.addTo(map);
