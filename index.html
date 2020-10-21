@@ -38,6 +38,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 	
+	<!-- Animated icon - Street View -->
+    <script src="dependance/L.Icon.Pulse.js"></script>
+	<link rel="stylesheet" href="dependance/L.Icon.Pulse.css" />
 	
 <style>	
 body {
@@ -115,6 +118,12 @@ body {
 	<br />
 	<div style="text-align:left; font-size: 12px; color:grey; "id = "lat1" class = "box"></div>
 	<div style="text-align:left; font-size: 12px; color:grey; "id = "lon1" class = "box"></div>
+	</div>
+	
+<!--Fenêtre Street View  --> 
+<div  id = "StreetV"class = "StreetVD">
+<b style="text-align:left; font-size: 11px; color:#999;"  >Street View</b>
+	<p id = "CloseST" >Fermer</p>
 	</div>
 	
 
@@ -299,7 +308,7 @@ body {
 		document.getElementById("B").className = "BarreIconeF";
 		closeloupe(); //Fermer la loupe
 		closetopo(); //Fermer la topo
-		close() ;//Fermer la fenetre de topo
+		close1() ;//Fermer la fenetre de topo
         };
 		document.getElementById("B").addEventListener("mouseover", openCouche);
 		
@@ -312,21 +321,21 @@ body {
 		////////////////// FENÊTRE DES BASEMAP //////////////////
 
 		//Fenêtre de la liste des Basemap
-	    function open() {
+	    function openB() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseF";
 		document.getElementById("B1").className = "BarreIcone1F";
 		closeloupe(); //Fermer la loupe
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
-		document.getElementById("B1").addEventListener("mouseover", open);
+		document.getElementById("B1").addEventListener("mouseover", openB);
 		
 		
-		function close() {
+		function close1() {
         document.getElementById("InfoBasemap").className = "InfoBasemapClasseD";
 		document.getElementById("B1").className = "BarreIcone1";
         };
-		document.getElementById("map").addEventListener("click", close);
+		document.getElementById("map").addEventListener("click", close1);
 
 		
 		//Selection - Basemap1
@@ -445,7 +454,7 @@ body {
         document.getElementById("InfoTopo").className = "InfoTopoClasseF";
 		document.getElementById("B2").className = "BarreIcone2F";
 		closeloupe(); //Fermer la loupe
-		close(); //Fermer la fenetre du basemap
+		close1(); //Fermer la fenetre du basemap
 		closeCouche();
         };
 		document.getElementById("B2").addEventListener("mouseover", opentopo);
@@ -500,7 +509,7 @@ body {
 	    function openloupe() {
 		document.getElementById("InfoRecherche").className = "InfoRechercheClasseF";
 		document.getElementById("B3").className = "BarreIcone3F";
-		close(); //Fermer la fenetre du basemap
+		close1(); //Fermer la fenetre du basemap
 		closetopo(); //Fermer la fenetre de topo
 		closeCouche();
         };
@@ -593,6 +602,75 @@ body {
 
 
 
+        ////////////////////////////////STREETVIEW//////////////////////////////////////
+
+        var featureGroupG = L.featureGroup();
+	    var pulsingIcon = L.icon.pulse({iconSize:[14,14],color:'red'});
+	
+        // cliquer sur le icon de street view
+		document.getElementById("Recherche6").addEventListener('click', Google1);
+					
+        var marker;	
+        var lat;
+        var lon;
+		
+		
+        function Google1() {
+		var nnn = "nouveau";
+       win = "";
+        //Selectionner recherche6 
+        document.getElementById("Recherche6").className = "SelectRechercheF";		
+		//Ouvrir la fenêtre
+		document.getElementById("StreetV").className = "StreetVF";
+		// Réenitialiser la couche
+		if (map.hasLayer(featureGroupG)) {
+        featureGroupG.clearLayers();
+		map.removeLayer(featureGroupG);
+            }
+		var marker = new L.marker(map.getCenter(), {
+        draggable: 'true',icon: pulsingIcon
+        });
+		featureGroupG.addLayer(marker);
+		featureGroupG.addTo(map);
+		var position = marker.getLatLng();
+		console.log(position);
+		
+		// quand l'utilisateur déplace l'icon
+		marker.on('dragend', function(event) {
+        var position = marker.getLatLng();
+		var lat = position.lat;
+		var lon = position.lng;
+        var url = 'https://www.google.com/maps?layer=c&cbll='+lat+','+lon;
+		if (nnn == "nouveau") {
+        win = window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=570,left=355,width=400,height=400");
+		nnn = "";
+            }
+		else {
+		if (!!win.window) {
+        win.window.close();
+        }
+		win = window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=570,left=355,width=400,height=400");
+        }
+		});
+		};
+		
+        ///**********/// cliquer sur "FERMER" 
+		document.getElementById("CloseST").addEventListener("click", Google2);
+        //fin
+		
+        function Google2() {
+		if (!!win.window) {
+        win.window.close();
+        }
+		//Ferme la fenêtre
+        document.getElementById("StreetV").className = "StreetVD";
+		//Enlever la Selection recherche6 
+        document.getElementById("Recherche6").className = "SelectRecherche";
+		if (map.hasLayer(featureGroupG)) {
+        featureGroupG.clearLayers();
+		map.removeLayer(featureGroupG);
+            }
+        };
 
 
 
