@@ -613,11 +613,16 @@ body {
         var marker;	
         var lat;
         var lon;
+		var win = "";
 		
 		
         function Google1() {
+		// Fermer la fenêtre de streetview si elle existe déjà //
+		if (!!win.window) {
+        win.window.close();
+        }
 		var nnn = "nouveau";
-       win = "";
+        win = "";
         //Selectionner recherche6 
         document.getElementById("Recherche6").className = "SelectRechercheF";		
 		//Ouvrir la fenêtre
@@ -647,9 +652,10 @@ body {
             }
 		else {
 		if (!!win.window) {
-        win.window.close();
+        //win.window.close();
         }
-		win = window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=570,left=355,width=400,height=400");
+		//win = window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=570,left=355,width=400,height=400");
+		win.location.href=(url);
         }
 		});
 		};
