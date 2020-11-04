@@ -160,6 +160,19 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 }
 
+.logo3class {
+	background-image: url(icone/question-mark-inside-a-circle.svg);
+	position: absolute;
+    left: 89%;
+     height: 16px;
+	width: 16px;
+	top : 84px;
+	cursor: pointer;
+}
+.logo3class:hover {
+background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
+}
+
 .Listclass {
 	background-image: url(icone/list.svg);
     position: absolute;
@@ -262,7 +275,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .item1debut {
 	text-align:left; 
 	font-size: 12px;
-	color:#666;
+	color:#999;
 	font-weight:bold; 
 	padding: 2px;
 	margin-left: 7px;
@@ -273,8 +286,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
     height: 15px;
     background: #9898d2;
     display: inline-block;
-
-    border-radius: 3px;
+    border-radius: 10px;
     left: 74%;
     top: 12px;
     position: absolute;
@@ -286,7 +298,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
     height: 13px;
     background: yellow;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 10px;
 	 border: 1px;
     border-style: dashed solid;
     border-color: red;
@@ -295,13 +307,33 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
     position: absolute;	
 		
     }
+	
+	.rectangle3 {
+	 width: 25px;
+    height: 15px;
+    background: #58b52f;
+    display: inline-block;
+    border-radius: 10px;
+    left: 74%;
+    top: 85px;
+    position: absolute;
+    }
 
 
 
 .item2debut {
 	text-align:left; 
 	font-size: 12px;
-	color:#666;
+	color:#999;
+	font-weight:bold; 
+	padding: 2px;
+	margin-left: 7px;
+}
+
+.item3debut {
+	text-align:left; 
+	font-size: 12px;
+	color:#999;
 	font-weight:bold; 
 	padding: 2px;
 	margin-left: 7px;
@@ -691,7 +723,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 }
 
 input:checked + .slider {
-  background-color: #70d244;
+  background-color: #078BAB;
 }
 
 input:focus + .slider {

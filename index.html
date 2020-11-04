@@ -42,6 +42,9 @@
     <script src="dependance/L.Icon.Pulse.js"></script>
 	<link rel="stylesheet" href="dependance/L.Icon.Pulse.css" />
 	
+	<!-- Get feature info WMS -->
+    <script src="dependance/WMS/leaflet.wms.js"></script>
+	
 <style>	
 body {
     font-family: Arial;
@@ -149,6 +152,17 @@ body {
 </label>
 <b id = "item2" class = "item2debut" >Bassin versant</b>
 <div class="rectangle2"></div>
+    <br />
+	<br />
+	<!--Couche 3  -->	
+	
+	<span id="logo3" class = "logo3class"></span>
+		<label class="switch">
+	 <input type="checkbox" id="myCheck3" onclick="myFunction3()">
+  <span class="slider round"></span>
+</label>
+<b id = "item3" class = "item3debut" >Carte Eco.</b>
+<div class="rectangle3"></div>
 </div>
 
 
@@ -231,6 +245,10 @@ body {
 		opacity: 0.4,
 		pane: 'WmsPanes'
         })
+		
+		var options = {'transparent': true, opacity: 0.7};
+        var source = L.WMS.source("https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?", options);
+        var wmsLayerEco = source.getLayer('ori_pee_ori_prov');
 		
 		var MP =L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -652,10 +670,16 @@ body {
             }
 		else {
 		if (!!win.window) {
-        //win.window.close();
+        win.location.href=(url);
         }
-		//win = window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=570,left=355,width=400,height=400");
-		win.location.href=(url);
+		if (win.window) {
+        ///////////// faire en sorte que la page se reload quand l'utilisateur ferme la page du street view
+		///////////// Ajouter un popup de bouger le point la première fois que le point rouge apparait, ensuite supprimé
+		////////////  Mettre toujours en avant plan la page de street view
+		////////////  Modifier l'angle selon l'axe de la route
+		///////////   Bouger marker dans le URL change selon la position du markeur
+        }
+		
         }
 		});
 		};
@@ -751,6 +775,20 @@ body {
   }
 }
 
+// Item3	
+	function myFunction3() {
+  // Get the checkbox
+  var checkBox = document.getElementById("myCheck3");
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+   wmsLayerEco.addTo(map);
+   document.getElementById("ListAdd").className = "ListDotF";	
+  } else {
+    map.removeLayer(wmsLayerEco);
+	document.getElementById("ListAdd").className = "ListDot";
+  }
+}
+
 
 ////////////////// COUCHES DE DONNÉES //////////////////
 
@@ -776,9 +814,9 @@ body {
        }
        });
 
+
+
 //TERRES PUBLIQUES 1 - VECTORGRID	
-
-
 
 		var highlight;
 		var clearHighlight = function() {
