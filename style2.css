@@ -568,31 +568,28 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 	text-align:left; 
 	font-size: 11px; 
 	color:#999;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
-	margin-left: 8px;
 }
 .SelectBasemap:hover {
     text-align:left; 
 	font-size: 11px; 
 	background-color: #f1f1f1;
 	border-radius: .2em;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
-	margin-left: 8px;
 }
 
 .SelectBasemapF {
     text-align:left; 
 	font-size: 11px; 
 	color:#333;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
 	border-bottom: 2px solid #70d244;
-	margin-left: 8px;
 }
 
 /*    fenêtre d'information ?    */
@@ -623,7 +620,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 	text-align:left; 
 	font-size: 11px; 
 	color:#999;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;	
 }
@@ -632,7 +629,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 	font-size: 11px; 
 	border-radius: .2em;
 	background-color: #f1f1f1;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
 }
@@ -641,7 +638,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
     text-align:left; 
 	font-size: 11px; 
 	color:#333;
-	padding: 2px;
+	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
 	border-bottom: 2px solid #70d244;
