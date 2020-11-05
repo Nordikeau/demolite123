@@ -585,11 +585,13 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .SelectBasemapF {
     text-align:left; 
 	font-size: 11px; 
-	color:#333;
+	color:#078BAB;
 	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
-	border-bottom: 2px solid #70d244;
+	background-color: #dce9ef;
+	border-radius: .2em;
+	
 }
 
 /*    fenêtre d'information ?    */
@@ -637,11 +639,12 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .SelectRechercheF {
     text-align:left; 
 	font-size: 11px; 
-	color:#333;
+	color:#078BAB;
 	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
-	border-bottom: 2px solid #70d244;
+		background-color: #dce9ef;
+	border-radius: .2em;
 }
 
 
