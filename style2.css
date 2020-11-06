@@ -534,7 +534,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
     right: 0;
     margin: 10px;
     min-height: 10px;
-    width: 160px;
+    width: 130px;
     left: 0px;
     top: 73px;
     border-radius: .5em;
@@ -585,7 +585,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .SelectBasemapF {
     text-align:left; 
 	font-size: 11px; 
-	color:#078BAB;
+	color:#666;
 	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
@@ -639,7 +639,7 @@ background-image: url(icone/question-mark-inside-a-circle-hover2.svg);
 .SelectRechercheF {
     text-align:left; 
 	font-size: 11px; 
-	color:#078BAB;
+	color:#666;
 	padding: 6px;
 	margin-top:-3px;
 	cursor: pointer;
